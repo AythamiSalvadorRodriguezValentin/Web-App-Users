@@ -1,0 +1,51 @@
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <div class="user" ng-repeat="user in usersList track by user.id">
+                <div class="user__photo">
+                    <img ng-src="user.photo" onerror="this.src=''">
+                </div>
+                <div class="user__prev">
+                    <p class="user__prev__data">
+                        {{user.name}}
+                        {{user.phone}}
+                        <div class="user__prev__data_button">
+                            <button ng-click="showUser(user.id)">Show</button>
+                            <button ng-click="editUser(user.id)">Edit</button>
+                            <button ng-click="deleteUser(user.id)">Remove</button>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="nav__bar">
+                <ul>
+                    <li>Users</li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="newUser">
+                <form class="newUser__form">
+                    <h3>Name: </h3>
+                    <input type="text" ng-required="true" ng-model="user.name" ng-minlength="3">
+                    <h3>E-mail: </h3>
+                    <input type="email" ng-required="true" ng-model="user.email">
+                    <h3>Phone: </h3>
+                    <input type="number" ng-required="true" ng-model="user.phone" ng-min="9" ng-max="9">
+                    <h3>Photo: </h3>
+                    <input type="url" ng-required="false" ng-model="user.photo" ng-minlength="5">
+                </form>
+            </div>
+            <div class="button__Create">
+                <button ng-click="addUser()">Create</button>
+            </div>
+        </div>
+    </div>
+</div>
+    
