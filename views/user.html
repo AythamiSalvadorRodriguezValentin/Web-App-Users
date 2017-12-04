@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <a href="#!/">Back</a>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="user__data__personal">
+                <img class="user__data__personal__photo" ng-src="userCtrl.user.photo" onerror="this.src='/img/no_image.png'">
+                <p class="user__data__personal__information">
+                    <h3 class="user__data__personal__information--title"><b>Datos Personales</b></h3>
+                    Name: {{userCtrl.user.name}}
+                    Phone: {{userCtrl.user.phone}}
+                    Email: {{userCtrl.user.email}}
+                </p>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="user__gifs__favourite">
+                <h3 class="user__gifs__favourite--title"><b>Favourite Gifs</b></h3>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="user__comics__favourite">
+                    <h3 class="user__comics__favourite--title"><b>Favourite Comics</b></h3>
+            </div>
+        </div>
+    </div>
+</div>

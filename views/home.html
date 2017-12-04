@@ -5,18 +5,18 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-            <div class="user" ng-repeat="user in usersList track by user.id">
+            <div class="user" ng-repeat="user in HomeCtrl.usersList track by user.id">
                 <div class="user__photo">
-                    <img ng-src="user.photo" onerror="this.src=''">
+                    <img ng-click="HomeCtrl.go(user.id)" ng-src="user.photo" onerror="this.src='/img/no_image.png'">
                 </div>
                 <div class="user__prev">
                     <p class="user__prev__data">
                         {{user.name}}
                         {{user.phone}}
                         <div class="user__prev__data_button">
-                            <button ng-click="showUser(user.id)">Show</button>
-                            <button ng-click="editUser(user.id)">Edit</button>
-                            <button ng-click="deleteUser(user.id)">Remove</button>
+                            <button ng-click="HomeCtrl.showUser(user.id)">Show</button>
+                            <button ng-click="HomeCtrl.editUser(user.id)">Edit</button>
+                            <button ng-click="HomeCtrl.removeUser(user)">Remove</button>
                         </div>
                     </p>
                 </div>
@@ -25,25 +25,51 @@
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <div class="nav__bar">
                 <ul>
-                    <li>Users</li>
-                    <li></li>
-                    <li></li>
+                    <li ng-click="HomeCtrl.changeView(0)">Users</li>
+                    <li ng-click="HomeCtrl.changeView(1)">Giphy</li>
+                    <li ng-click="HomeCtrl.changeView(2)">Marvel</li>
                 </ul>
             </div>
-            <div class="newUser">
-                <form class="newUser__form">
-                    <h3>Name: </h3>
-                    <input type="text" ng-required="true" ng-model="user.name" ng-minlength="3">
-                    <h3>E-mail: </h3>
-                    <input type="email" ng-required="true" ng-model="user.email">
-                    <h3>Phone: </h3>
-                    <input type="number" ng-required="true" ng-model="user.phone" ng-min="9" ng-max="9">
-                    <h3>Photo: </h3>
-                    <input type="url" ng-required="false" ng-model="user.photo" ng-minlength="5">
-                </form>
+            <div ng-show="HomeCtrl.showView == 0" ng-hide="HomeCtrl.showView != 0">
+                <div class="newUser" ng-model-options="{allowInvalid: true, debounce: 200}">
+                    <form name="HomeCtrl.formUser" ng-model="HomeCtrl.formUser" class="newUser__form" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
+                        <h3>Name: </h3>
+                        <input name="HomeCtrl.Name" type="text" ng-required="true" ng-model="HomeCtrl.user.name" ng-minlength="3" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
+                        <h3>E-mail: </h3>
+                        <input name="HomeCtrl.Email" type="email" ng-required="true" ng-model="HomeCtrl.user.email" ng-minlength="5" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
+                        <h3>Phone: </h3>
+                        <input name="HomeCtrl.Phone" type="number" ng-required="true" ng-model="HomeCtrl.user.phone" ng-minlength="9" ng-maxlength="9" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
+                        <h3>Photo: </h3>
+                        <input name="HomeCtrl.Photo" type="text" ng-required="true" ng-model="HomeCtrl.user.photo" ng-minlength="5" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
+                    </form>
+                </div>
             </div>
-            <div class="button__Create">
-                <button ng-click="addUser()">Create</button>
+            <div ng-show="HomeCtrl.showView == 1" ng-hide="HomeCtrl.showView != 1">
+                <div class="user__gifs__favourite">
+                    <div class="user__gifs__favourite" ng-repeat="giphy in HomeCtrl.user.giphy track by giphy.id">
+                        <img class="user__gifs__favourite__photo" ng-click="HomeCtrl.deleteGifsFav(giphy)" ng-src="{{giphy.images.downsized.url}}" onerror="this.src='/img/no_image.png'">
+                    </div>
+                </div>
+                <div class="user__gifs__search">
+                    <input type="text" placeholder="Search Giphy" ng-model="HomeCtrl.search_giphy">
+                    <p class="user__gifs__search__type">
+                        <a ng-class="{blackStyle:rectOrTrend}" ng-click="HomeCtrl.changeRectOrTrend(true)">Recents</a>
+                        <a ng-class="{blackStyle:!rectOrTrend}" ng-click="HomeCtrl.changeRectOrTrend(false)">Trending</a>
+                    </p>
+                    <button ng-click="HomeCtrl.getGiphies()">Search Giphy</button>
+                </div>
+                <div class="user__gifs__show">
+                    <div class="user__gifs__show__views" ng-repeat="giphy in HomeCtrl.giphyList track by giphy.id">
+                        <img class="user__gifs__show__views__photo" ng-click="HomeCtrl.addGifsFav(giphy)" ng-src="{{giphy.images.downsized.url}}" onerror="this.src='/img/no_image.png'">
+                    </div>
+                </div>
+            </div>
+            <div ng-show="HomeCtrl.showView == 2" ng-hide="HomeCtrl.showView != 2">
+                
+            </div>
+            <div class="button__Create__Modify__User">
+                    <button ng-if="!HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" ng-click="HomeCtrl.addNewUser()">Create</button>
+                    <button ng-if="HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" ng-click="HomeCtrl.modifyUser()">Modify</button>
             </div>
         </div>
     </div>

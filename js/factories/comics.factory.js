@@ -17,7 +17,7 @@
         return service;
         /////////////////////////////////////////// FUCTION USERS ///////////////////////////////////////////
         function getUsersAll() {
-            return ('usersList' in localStorage) ? JSON.parse(localStorage.getItem('userList')) : [];
+            return ('usersList' in localStorage) ? JSON.parse(localStorage.getItem('usersList')) : [];
         };
         function getUser(id){
             let users = getUsersAll();
@@ -29,7 +29,6 @@
         function addUser(user){
             let users = getUsersAll();
             user.id = randId();
-            console.log(user);
             users.push(user);
             localStorage.setItem('usersList',JSON.stringify(users));
             return user;
@@ -50,7 +49,7 @@
             for (let i = 0; i < users.length; i++) {
                 const u = users[i];
                 if (u.id == id) {
-                    users[i].splice(i,1);
+                    users.splice(i,1);
                     break;
                 }
             }

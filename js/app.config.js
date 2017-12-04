@@ -7,5 +7,17 @@ function config($routeProvider){
             templateUrl:'/views/home.html',
             controllerAs:'HomeCtrl'
         })
+        .when('/user/:id',{
+            controller:'UserController',
+            templateUrl:'/views/user.html',
+            controllerAs:'userCtrl',
+            resolve:{
+                User : UserLocalFactory
+            }
+        })
         .otherwise({redirectTo : '/'});
 };
+UserLocalFactory.$inject = ['$route','UserLocalProvider'];
+function UserLocalFactory($route,UserLocalProvider){
+    return UserLocalProvider.getUser($route.current.params.id);
+}
