@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('APP_FAV')
+        .module('Agend_User')
         .controller('HomeController', HomeController);
 
     HomeController.$inject = ["$location","UserLocalProvider","GiphyServerProvider","MarvelServerProvider"];
@@ -39,7 +39,7 @@
         vm.marvelListSelect = [];
         vm.search_marvel = '';
         vm.marvelList = [];
-        vm.marvel = '';
+        vm.typeMarvel = '';
         ////////////////////////// FUCTION MARVEL ////////////////////
         vm.getMarvel = getMarvel;
         ////////////////////////// USER MARVEL ///////////////////////
@@ -82,11 +82,7 @@
             if (userName == user.name) {
                 ULP.deleteUser(user.id);
                 for (let i = 0; i < vm.usersList.length; i++) {
-                    const u = vm.usersList[i];
-                    if (u.id == user.id){
-                        vm.usersList.splice(i,1);
-                        break;
-                    }
+                    if (vm.usersList.includes(user)) vm.usersList.splice(i,1);
                 }
             }
         };
@@ -101,14 +97,9 @@
         };
         ////////////////////////// FUCTION GIPHY ////////////////////
         function getGiphies(){
-            if(vm.rectOrTrend){
-                GSP.getGifsRecents(vm.search_giphy).then(successFuction1).catch(errorFuction);
-            } else {
-                GSP.getGifsTrending(vm.search_giphy).then(successFuction1).catch(errorFuction);
-            }
-        };
-        function successFuction1(response){
-            vm.giphyList = response;
+            if(vm.rectOrTrend) GSP.getGifsRecents(vm.search_giphy).then(response => vm.giphyList = response).catch(errorFuction);
+            else  GSP.getGifsTrending(vm.search_giphy).then(response => vm.giphyList = response).catch(errorFuction);
+            vm.search_giphy = '';
         };
         function errorFuction(response){
             console.error(response);
@@ -124,11 +115,7 @@
         }
         function deleteGifsFav(Giphy){
             for (let i = 0; i < vm.user.giphy.length; i++) {
-                const u = vm.user.giphy[i];
-                if (u.id == Giphy.id) {
-                    vm.user.giphy.splice(i,1);
-                    break;
-                }
+                if(vm.user.giphy.includes(Giphy)) vm.user.giphy.splice(i,1);
             }
             ULP.updateUser(vm.user);
         }
@@ -138,10 +125,8 @@
         }
         ////////////////////////// FUCTION MARVEL ////////////////////
         function getMarvel(){
-            MSP.getMarvelFct(vm.marvel, vm.search_marvel).then(successFuction2).catch(errorFuction);
-        };
-        function successFuction2(response){
-            vm.marvelList = response;
+            MSP.getMarvelFct(vm.typeMarvel, vm.search_marvel).then(response => vm.marvelList = response).catch(errorFuction);
+            vm.search_marvel = '';
         };
         ////////////////////////// USER MARVEL ///////////////////////
         function addMarvelFav(Marvel){
@@ -151,11 +136,7 @@
         }
         function deleteMarvelFav(Marvel){
             for (let i = 0; i < vm.user.marvel.length; i++) {
-                const u = vm.user.marvel[i];
-                if (u.id == Marvel.id) {
-                    vm.user.marvel.splice(i,1);
-                    break;
-                }
+                if (vm.user.marvel.includes(Marvel)) vm.user.marvel.splice(i,1);
             }
             ULP.updateUser(vm.user);
         }

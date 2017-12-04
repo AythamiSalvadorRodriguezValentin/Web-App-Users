@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('APP_FAV')
+        .module('Agend_User')
         .factory('GiphyServerProvider', GiphyServerProvider);
 
     GiphyServerProvider.$inject = ['$http'];

@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('APP_FAV')
+        .module('Agend_User')
         .factory('MarvelServerProvider', MarvelServerProvider);
 
     MarvelServerProvider.$inject = ['$http'];

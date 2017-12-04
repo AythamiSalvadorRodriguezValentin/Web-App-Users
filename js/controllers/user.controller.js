@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('APP_FAV')
+        .module('Agend_User')
         .controller('UserController', UserController);
 
     UserController.$inject = ['User'];

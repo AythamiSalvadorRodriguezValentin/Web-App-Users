@@ -1,4 +1,4 @@
-angular.module('APP_FAV',['ngRoute']).config(config);
+angular.module('Agend_User',['ngRoute']).config(config);
 config.$inject = ['$routeProvider'];
 function config($routeProvider){
     $routeProvider

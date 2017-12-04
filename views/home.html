@@ -7,7 +7,7 @@
         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
             <div class="user" ng-repeat="user in HomeCtrl.usersList track by user.id">
                 <div class="user__photo">
-                    <img ng-click="HomeCtrl.go(user.id)" ng-src="user.photo" onerror="this.src='/img/no_image.png'">
+                    <img ng-click="HomeCtrl.go(user.id)" ng-src="{{user.photo}}" onerror="this.src='/img/no_image.png'">
                 </div>
                 <div class="user__prev">
                     <p class="user__prev__data">
@@ -51,12 +51,14 @@
                     </div>
                 </div>
                 <div class="user__gifs__search">
-                    <input type="text" placeholder="Search Giphy" ng-model="HomeCtrl.search_giphy">
+                    <form name="HomeCtrl.formSG">
+                        <input name="HomeCtrl.SG" type="text" placeholder="Search Giphy" ng-model="HomeCtrl.search_giphy" ng-required="true" ng-minlength="1">
+                    </form>
                     <p class="user__gifs__search__type">
                         <a ng-class="{blackStyle:(HomeCtrl.rectOrTrend)}" ng-click="HomeCtrl.RecentsTrending(true)">Recents</a>
                         <a ng-class="{blackStyle:(!HomeCtrl.rectOrTrend)}" ng-click="HomeCtrl.RecentsTrending(false)">Trending</a>
                     </p>
-                    <button ng-click="HomeCtrl.getGiphies()">Search Giphy</button>
+                    <button ng-disabled="HomeCtrl.formSG.$invalid" ng-click="HomeCtrl.getGiphies()">Search Giphy</button>
                 </div>
                 <div class="user__gifs__show">
                     <div class="user__gifs__show__views" ng-repeat="giphy in HomeCtrl.giphyList track by giphy.id">
@@ -71,11 +73,14 @@
                     </div>
                 </div>
                 <div class="user__marvel__search">
-                    <input type="text" placeholder="Search Marvel" ng-model="HomeCtrl.search_marvel">
-                    <select name="HomeCtrl.selectMarvel" ng-model="HomeCtrl.marvel">
-                        <option ng-repeat="marvel in HomeCtrl.marvelListSelect track by $index">{{marvel}}</option>
-                    </select>
-                    <button ng-click="HomeCtrl.getMarvel()">Search Marvel</button>
+                    <form name="HomeCtrl.formSM">
+                        <input type="text" placeholder="Search Marvel" ng-model="HomeCtrl.search_marvel" ng-required="true" ng-minlength="1">
+                        <select ng-model="HomeCtrl.typeMarvel" ng-required="true">
+                            <option disabled selected value>--Please select--</option>
+                            <option ng-repeat="marvel in HomeCtrl.marvelListSelect track by $index">{{marvel}}</option>
+                        </select>
+                    </form>
+                    <button ng-disabled="HomeCtrl.formSM.$invalid" ng-click="HomeCtrl.getMarvel()">Search Marvel</button>
                 </div>
                 <div class="user__marvel__show">
                     <div class="user__marvel__show__views" ng-repeat="marvel in HomeCtrl.marvelList track by marvel.id">
