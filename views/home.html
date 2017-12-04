@@ -60,7 +60,7 @@
                 </div>
                 <div class="user__gifs__show">
                     <div class="user__gifs__show__views" ng-repeat="giphy in HomeCtrl.giphyList track by giphy.id">
-                        <img class="user__gifs__show__views__photo" ng-click="HomeCtrl.addGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
+                        <img class="user__gifs__show__views__photo" ng-class="{borderBlackStyle:HomeCtrl.checkGiphyUser(giphy)}" ng-click="HomeCtrl.addGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                 </div>
                 <div class="user__marvel__show">
                     <div class="user__marvel__show__views" ng-repeat="marvel in HomeCtrl.marvelList track by marvel.id">
-                        <img class="user__marvel__show__views__photo" ng-click="HomeCtrl.addMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
+                        <img class="user__marvel__show__views__photo" ng-class="{borderBlackStyle:HomeCtrl.checkMarvelUser(marvel)}" ng-click="HomeCtrl.addMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
                     </div>
                 </div>
             </div>

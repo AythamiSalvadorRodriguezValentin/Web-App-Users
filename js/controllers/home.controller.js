@@ -34,6 +34,7 @@
         ///////////////////////// USER GIPHY ///////////////////////
         vm.addGifsFav = addGifsFav;
         vm.deleteGifsFav = deleteGifsFav;
+        vm.checkGiphyUser = checkGiphyUser;
         ///////////////////////// VAR MARVEL ///////////////////////
         vm.marvelListSelect = [];
         vm.search_marvel = '';
@@ -44,6 +45,7 @@
         ////////////////////////// USER MARVEL ///////////////////////
         vm.addMarvelFav = addMarvelFav;
         vm.deleteMarvelFav = deleteMarvelFav;
+        vm.checkMarvelUser = checkMarvelUser;
         ////////////////////////// INIT ////////////////////////////
         activate();
         ////////////////////////// FUCTION INIT ////////////////////
@@ -89,10 +91,8 @@
             }
         };
         function checkValid(){
-            if((typeof vm.user.giphy =='object') && vm.formUser.$valid){
-                if(vm.user.giphy.length>0) return true;
-                else return false;
-            } else return false;
+            if(vm.formUser.$valid) return true;
+            else return false;
         }
         ////////////////////// NAV PERFIL USER //////////////////////
         function go(id){
@@ -132,6 +132,10 @@
             }
             ULP.updateUser(vm.user);
         }
+        function checkGiphyUser(Giphy){
+            if(typeof vm.user.giphy =='undefined') vm.user.giphy = [];
+            return vm.user.giphy.includes(Giphy);
+        }
         ////////////////////////// FUCTION MARVEL ////////////////////
         function getMarvel(){
             MSP.getMarvelFct(vm.marvel, vm.search_marvel).then(successFuction2).catch(errorFuction);
@@ -154,6 +158,10 @@
                 }
             }
             ULP.updateUser(vm.user);
+        }
+        function checkMarvelUser(Marvel){
+            if(typeof vm.user.marvel =='undefined') vm.user.marvel = [];
+            return vm.user.marvel.includes(Marvel);
         }
     }
 })();
