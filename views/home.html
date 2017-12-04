@@ -47,25 +47,41 @@
             <div ng-show="HomeCtrl.showView == 1" ng-hide="HomeCtrl.showView != 1">
                 <div class="user__gifs__favourite">
                     <div class="user__gifs__favourite" ng-repeat="giphy in HomeCtrl.user.giphy track by giphy.id">
-                        <img class="user__gifs__favourite__photo" ng-click="HomeCtrl.deleteGifsFav(giphy)" ng-src="{{giphy.images.downsized.url}}" onerror="this.src='/img/no_image.png'">
+                        <img class="user__gifs__favourite__photo" ng-click="HomeCtrl.deleteGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
                     </div>
                 </div>
                 <div class="user__gifs__search">
                     <input type="text" placeholder="Search Giphy" ng-model="HomeCtrl.search_giphy">
                     <p class="user__gifs__search__type">
-                        <a ng-class="{blackStyle:rectOrTrend}" ng-click="HomeCtrl.changeRectOrTrend(true)">Recents</a>
-                        <a ng-class="{blackStyle:!rectOrTrend}" ng-click="HomeCtrl.changeRectOrTrend(false)">Trending</a>
+                        <a ng-class="{blackStyle:(HomeCtrl.rectOrTrend)}" ng-click="HomeCtrl.RecentsTrending(true)">Recents</a>
+                        <a ng-class="{blackStyle:(!HomeCtrl.rectOrTrend)}" ng-click="HomeCtrl.RecentsTrending(false)">Trending</a>
                     </p>
                     <button ng-click="HomeCtrl.getGiphies()">Search Giphy</button>
                 </div>
                 <div class="user__gifs__show">
                     <div class="user__gifs__show__views" ng-repeat="giphy in HomeCtrl.giphyList track by giphy.id">
-                        <img class="user__gifs__show__views__photo" ng-click="HomeCtrl.addGifsFav(giphy)" ng-src="{{giphy.images.downsized.url}}" onerror="this.src='/img/no_image.png'">
+                        <img class="user__gifs__show__views__photo" ng-click="HomeCtrl.addGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
                     </div>
                 </div>
             </div>
             <div ng-show="HomeCtrl.showView == 2" ng-hide="HomeCtrl.showView != 2">
-                
+                <div class="user__marvel__favourite">
+                    <div class="user__marvel__favourite" ng-repeat="marvel in HomeCtrl.user.marvel track by marvel.id">
+                        <img class="user__marvel__favourite__photo" ng-click="HomeCtrl.deleteMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
+                    </div>
+                </div>
+                <div class="user__marvel__search">
+                    <input type="text" placeholder="Search Marvel" ng-model="HomeCtrl.search_marvel">
+                    <select name="HomeCtrl.selectMarvel" ng-model="HomeCtrl.marvel">
+                        <option ng-repeat="marvel in HomeCtrl.marvelListSelect track by $index">{{marvel}}</option>
+                    </select>
+                    <button ng-click="HomeCtrl.getMarvel()">Search Marvel</button>
+                </div>
+                <div class="user__marvel__show">
+                    <div class="user__marvel__show__views" ng-repeat="marvel in HomeCtrl.marvelList track by marvel.id">
+                        <img class="user__marvel__show__views__photo" ng-click="HomeCtrl.addMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
+                    </div>
+                </div>
             </div>
             <div class="button__Create__Modify__User">
                     <button ng-if="!HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" ng-click="HomeCtrl.addNewUser()">Create</button>

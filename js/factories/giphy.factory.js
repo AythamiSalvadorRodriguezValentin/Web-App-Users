@@ -36,7 +36,16 @@
                     .catch(errorFuction);
         }
         function successFuction(response){
-            return response.data.data;
+            let giphyListFct = response.data.data;
+            let giphyList = [];
+            for (let i = 0; i < giphyListFct.length; i++) {
+                const g = giphyListFct[i];
+                let object = {};
+                object.id = g.id;
+                object.photo = g.images.downsized.url;
+                if(!giphyList.includes(object)) giphyList.push(object);
+            }
+            return giphyList;
         };
         function errorFuction(response){
             return response;

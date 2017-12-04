@@ -15,11 +15,19 @@
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <div class="user__gifs__favourite">
                 <h3 class="user__gifs__favourite--title"><b>Favourite Gifs</b></h3>
+                <div class="user__gifs__favourite">
+                    <div class="user__gifs__favourite" ng-repeat="giphy in userCtrl.user.giphy track by giphy.id">
+                        <img class="user__gifs__favourite__photo" ng-click="userCtrl.deleteGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <div class="user__comics__favourite">
-                    <h3 class="user__comics__favourite--title"><b>Favourite Comics</b></h3>
+                <h3 class="user__comics__favourite--title"><b>Favourite Comics</b></h3>
+                <div class="user__marvel__favourite" ng-repeat="marvel in userCtrl.user.marvel track by marvel.id">
+                    <img class="user__marvel__favourite__photo" ng-click="HomeCtrl.deleteMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
+                </div>
             </div>
         </div>
     </div>
