@@ -73,9 +73,10 @@ input.ng-valid{
 }
 /*_____NAV BAR____*/
 .nav__bar{
-    width: 100%;
-    height: 45px;
+    width: 500px;
+    height: 40px;
     display: flex;
+    margin-top: 10px;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
@@ -96,7 +97,7 @@ input.ng-valid{
     font-weight: 15px;
 }
 /*_____Container General Giphy and Marvel______*/
-.container_Search{
+.container__R{
     height: 800px;
     border: 1px solid rgba(128, 255, 0, 0.4);
     border-left: 1px solid chartreuse;
@@ -120,9 +121,13 @@ input.ng-valid{
     box-shadow: 1px 1px 1px 1px rgba(247, 169, 81, 0.555);
     border-radius: 7px 7px 7px 7px;
 }
+.newUser form input::-webkit-input-placeholder{
+    color: black;
+    padding-left: 5px;
+}
 .button__Create__Modify__User{
     width: 100%;
-    height: 60px;
+    height: 70px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -134,4 +139,107 @@ input.ng-valid{
     box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(165, 42, 42, 0.5);
     height: 40px;
     width: 100px;
+}
+/*_____Container Giphy and Marvel_____*/
+.user__container{
+    width: 100%;
+    height: 650px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+.user__favourite__container{
+    width: 500px;
+    height: 200px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    overflow: scroll;
+    margin: 10px;
+    border: 1px ridge rgba(165, 42, 42, 0.5);
+    background-color: rgba(247, 169, 81, 0.555);
+}
+.user__favourite{
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+    display: flex;
+    flex-flow: row wrap;
+}
+.user__favourite__photo{
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-image: 1px solid bisque;
+}
+.user__search{
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+.user__search button{
+    border: 1px ridge rgba(165, 42, 42, 0.5);
+    background-color: rgba(247, 169, 81, 0.555);
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(165, 42, 42, 0.5);
+}
+.user__search form input{
+    border: 1px ridge rgba(165, 42, 42, 0.5);
+    background-color: rgba(247, 169, 81, 0.555);
+    border-radius: 7px 7px 7px 7px;
+}
+.user__search form input::-webkit-input-placeholder{
+    color: black;
+    padding-left: 5px;
+}
+.user__search__select{
+    margin: 20px;
+    height: 25px;
+    width: 150px;
+    border: 1px ridge rgba(165, 42, 42, 0.5);
+    background-color: rgba(247, 169, 81, 0.555);
+}
+.user__search__type{
+    margin: 20px;
+}
+.user__search__type__recent{
+    color: black;
+    text-decoration: none;
+}
+.user__search__type__trending{
+    color: black;
+    text-decoration: none;
+}
+.user__search__type__recent:hover{
+    color: rgb(155, 83, 7);
+    text-decoration: none;
+}
+.user__search__type__trending:hover{
+    color: rgb(155, 83, 7);
+    text-decoration: none;
+}
+.user__show_container{
+    width: 500px;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    overflow: scroll;
+    margin: 10px;
+    border: 1px ridge rgba(165, 42, 42, 0.5);
+    background-color: rgba(247, 169, 81, 0.555);
+}
+.user__show__views{
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+    display: flex;
+    flex-flow: row wrap;
+}
+.user__show__views__photo{
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-image: 1px solid bisque;
 }
