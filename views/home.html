@@ -68,7 +68,7 @@
                     </div>
                     <div class="user__show_container">
                         <div class="user__show__views" ng-repeat="giphy in HomeCtrl.giphyList track by giphy.id">
-                            <img class="user__show__views__photo" ng-class="{borderBlackStyle:HomeCtrl.checkGiphyUser(giphy)}" ng-click="HomeCtrl.addGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
+                            <img class="user__show__views__photo__gifs" ng-class="{borderBlackStyle:HomeCtrl.checkGiphyUser(giphy)}" ng-click="HomeCtrl.addGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
                         </div>
                     </div>
                 </div>
@@ -89,9 +89,9 @@
                         </form>
                         <button ng-disabled="HomeCtrl.formSM.$invalid" ng-click="HomeCtrl.getMarvel()">Search Marvel</button>
                     </div>
-                    <div class="user__show_container">
-                        <div class="user__show__views" ng-repeat="marvel in HomeCtrl.marvelList track by marvel.id">
-                            <img class="user__show__views__photo" ng-class="{borderBlackStyle:HomeCtrl.checkMarvelUser(marvel)}" ng-click="HomeCtrl.addMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
+                    <div class="user__show_container__marvel">
+                        <div class="user__show__views__marvel" ng-repeat="marvel in HomeCtrl.marvelList track by marvel.id">
+                            <img class="user__show__views__photo__marvel" ng-class="{borderBlackStyle:HomeCtrl.checkMarvelUser(marvel)}" ng-click="HomeCtrl.addMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
                         </div>
                     </div>
                 </div>

@@ -35,6 +35,7 @@
                 object.title = m.title;
                 object.photo = m.thumbnail.path + '.' + m.thumbnail.extension;
                 if(!marvelList.includes(object)) marvelList.push(object);
+                if(marvelList.length >=3) break;
             }
             return marvelList;
         };

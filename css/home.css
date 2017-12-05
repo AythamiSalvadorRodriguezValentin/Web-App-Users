@@ -220,7 +220,19 @@
     height: 100%;
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-around;
+    overflow: scroll;
+    margin: 10px;
+    border: 1px ridge rgba(165, 42, 42, 0.5);
+    background-color: rgba(247, 169, 81, 0.555);
+}
+.user__show_container__marvel{
+    width: 95%;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
     justify-content: center;
+    align-items: center;
     overflow: scroll;
     margin: 10px;
     border: 1px ridge rgba(165, 42, 42, 0.5);
@@ -233,9 +245,24 @@
     display: flex;
     flex-flow: row wrap;
 }
-.user__show__views__photo{
+.user__show__views__marvel{
+    width: 250px;
+    height: 250px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row wrap;
+}
+.user__show__views__photo__gifs{
     width: 200px;
     height: 200px;
+    object-fit: contain;
+    border-image: 1px solid bisque;
+}
+.user__show__views__photo__marvel{
+    width: 250px;
+    height: 250px;
     object-fit: contain;
     border-image: 1px solid bisque;
 }

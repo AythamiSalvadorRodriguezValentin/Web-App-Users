@@ -44,6 +44,7 @@
                 object.id = g.id;
                 object.photo = g.images.downsized.url;
                 if(!giphyList.includes(object)) giphyList.push(object);
+                if(giphyList.length >= 8) break;
             }
             return giphyList;
         };
