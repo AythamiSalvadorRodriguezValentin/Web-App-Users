@@ -35,7 +35,8 @@
                     </ul>
                 </div>
                 <!-- Container User Perfil -->
-                <div class="user__container" ng-show="HomeCtrl.showView == 0" ng-hide="HomeCtrl.showView != 0">
+                <personal-form-user></personal-form-user>
+                <!-- <div class="user__container" ng-show="HomeCtrl.showView == 0" ng-hide="HomeCtrl.showView != 0">
                     <div class="newUser" ng-model-options="{allowInvalid: true, debounce: 200}">
                         <form name="HomeCtrl.formUser" ng-model="HomeCtrl.formUser" class="newUser__form" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
                             <h3>Name: </h3>
@@ -48,7 +49,7 @@
                             <input name="HomeCtrl.Photo" placeholder="Photo user" type="text" ng-required="true" ng-model="HomeCtrl.user.photo" ng-minlength="5" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
                         </form>
                     </div>
-                </div>
+                </div> -->
                 <!-- Container Gifs -->
                 <div class="user__container" ng-show="HomeCtrl.showView == 1" ng-hide="HomeCtrl.showView != 1">
                     <div class="user__favourite__container">
