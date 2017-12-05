@@ -1,32 +1,36 @@
 <div class="container-fluid">
-    <a href="#!/">Back</a>
     <div class="row">
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <div class="user__data__personal">
-                <img class="user__data__personal__photo" ng-src="userCtrl.user.photo" onerror="this.src='/img/no_image.png'">
-                <p class="user__data__personal__information">
-                    <h3 class="user__data__personal__information--title"><b>Datos Personales</b></h3>
-                    Name: {{userCtrl.user.name}}
-                    Phone: {{userCtrl.user.phone}}
-                    Email: {{userCtrl.user.email}}
-                </p>
-            </div>
-        </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <div class="user__gifs__favourite">
-                <h3 class="user__gifs__favourite--title"><b>Favourite Gifs</b></h3>
-                <div class="user__gifs__favourite">
-                    <div class="user__gifs__favourite" ng-repeat="giphy in userCtrl.user.giphy track by giphy.id">
-                        <img class="user__gifs__favourite__photo" ng-click="userCtrl.deleteGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
+        <div class="col-md-4 col-lg-4">
+            <div class="agend__user__data__personal__container">
+                <a class="back__user__button" href="#!/">Back</a>
+                <div class="agend__user__data__personal">
+                    <div class="agend__user__data__personal__photo"><img ng-src="{{userCtrl.user.photo}}" onerror="this.src='/img/no_image.png'"></div>
+                    <div class="agend__user__data__personal__information">
+                        <h3 class="agend__user__data__personal__information--title"><b>Datos Personales</b></h3>
+                        <p>Name: {{userCtrl.user.name}} <br>
+                        Phone: {{userCtrl.user.phone}} <br>
+                        Email: {{userCtrl.user.email}}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <div class="user__comics__favourite">
-                <h3 class="user__comics__favourite--title"><b>Favourite Comics</b></h3>
-                <div class="user__marvel__favourite" ng-repeat="marvel in userCtrl.user.marvel track by marvel.id">
-                    <img class="user__marvel__favourite__photo" ng-click="HomeCtrl.deleteMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
+        <div class="col-md-4 col-lg-4">
+            <div class="agend__user__favourite__container">
+                <h3 class="agend__user__favourite--title"><b>Favourite Gifs</b></h3>
+                <div class="agend__user__favourite__parent">
+                    <div class="agend__user__favourite" ng-repeat="giphy in userCtrl.user.giphy track by giphy.id">
+                        <img class="agend__user__favourite__photo" ng-click="userCtrl.deleteGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4">
+            <div class="agend__user__favourite__container">
+                <h3 class="agend__user__favourite--title"><b>Favourite Comics</b></h3>
+                <div class="agend__user__favourite__parent">
+                    <div class="agend__user__favourite" ng-repeat="marvel in userCtrl.user.marvel track by marvel.id">
+                        <img class="agend__user__favourite__photo" ng-click="HomeCtrl.deleteMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
+                    </div>
                 </div>
             </div>
         </div>

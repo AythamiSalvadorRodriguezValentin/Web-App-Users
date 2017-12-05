@@ -1,13 +1,3 @@
-input.ng-valid{
-    border-right: 5px solid greenyellow;
-}
-.blackStyle{
-    font-weight: bold;
-    color: black;
-}
-.borderBlackStyle{
-    border: 1px solid black;
-}
 /*_____USER_____*/
 .container__user{
     width: 100%;
@@ -17,7 +7,6 @@ input.ng-valid{
     justify-content: center;
     align-items: center;
     border: 1px solid rgba(128, 255, 0, 0.4);
-    border-right: 1px solid chartreuse;
     background-color: rgba(156, 205, 50, 0.4);
     overflow: scroll;
 }
@@ -28,9 +17,10 @@ input.ng-valid{
     max-height: 300px;
     border: 3px ridge rgba(165, 42, 42, 0.5);
     background-color: rgba(247, 169, 81, 0.555);
+    border-radius: 9px 9px 9px 9px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 .user__photo{
@@ -39,12 +29,12 @@ input.ng-valid{
     max-height: 200px;
 }
 .user__photo img{
-    max-width: 200px;
-    max-height: 200px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
-    background-color: white;
-    border: 1px solid white;
     border-radius: 50%;
+    border: 1px ridge rgba(165, 42, 42, 0.5);
+    background-color: white;
 }
 .user__prev{
     width: 300px;
@@ -67,6 +57,9 @@ input.ng-valid{
 }
 .user__prev__data_button{
     display: inline-flex;
+    align-items: center;
+    align-self: center;
+    height: 50px;
 }
 .user__prev__data_button button{
     background-color: transparent;
@@ -104,7 +97,6 @@ input.ng-valid{
 .container__R{
     height: 800px;
     border: 1px solid rgba(128, 255, 0, 0.4);
-    border-left: 1px solid chartreuse;
     background-color: rgba(156, 205, 50, 0.4);
     display: flex;
     flex-flow: column nowrap;
@@ -246,4 +238,18 @@ input.ng-valid{
     height: 200px;
     object-fit: contain;
     border-image: 1px solid bisque;
+}
+/*_______Ng-Style_______*/
+input.ng-valid.ng-touched{
+    border-right: 5px solid greenyellow;
+}
+input.ng-invalid.ng-dirty.ng-touched{
+    border-right: 5px solid red;
+}
+.blackStyle{
+    font-weight: bold;
+    color: black;
+}
+.borderBlackStyle{
+    border: 1px solid black;
 }

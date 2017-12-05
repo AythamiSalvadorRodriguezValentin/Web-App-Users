@@ -39,7 +39,7 @@
                     <div class="newUser" ng-model-options="{allowInvalid: true, debounce: 200}">
                         <form name="HomeCtrl.formUser" ng-model="HomeCtrl.formUser" class="newUser__form" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
                             <h3>Name: </h3>
-                            <input name="HomeCtrl.Name" placeholder="Name user" type="text" ng-required="true" ng-model="HomeCtrl.user.name" ng-minlength="3" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
+                            <input name="HomeCtrl.Name" placeholder="Name user" type="text" ng-required="true" ng-model="HomeCtrl.user.name" ng-minlength="3" ng-maxlength="15" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
                             <h3>E-mail: </h3>
                             <input name="HomeCtrl.Email" placeholder="Email user" type="email" ng-required="true" ng-model="HomeCtrl.user.email" ng-minlength="5" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
                             <h3>Phone: </h3>
