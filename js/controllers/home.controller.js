@@ -19,7 +19,7 @@
         vm.editUser = editUser;
         vm.modifyUser = modifyUser;
         vm.removeUser = removeUser;
-        vm.checkValid = checkValid;
+        /* vm.checkValid = checkValid; */
         ////////////////////// NAV PERFIL USER //////////////////////
         vm.go = go;
         ///////////////////// VAR SCOPE USER ///////////////////////
@@ -86,10 +86,10 @@
                 }
             }
         };
-        function checkValid(){
+        /* function checkValid(){
             if(vm.formUser.$valid) return true;
             else return false;
-        }
+        } */
         ////////////////////// NAV PERFIL USER //////////////////////
         function go(id){
             let url = "/user/" + id;

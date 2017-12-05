@@ -35,7 +35,7 @@
                     </ul>
                 </div>
                 <!-- Container User Perfil -->
-                <personal-form-user></personal-form-user>
+                <personal-form-user user-id='HomeCtrl.user.id'></personal-form-user>
                 <!-- <div class="user__container" ng-show="HomeCtrl.showView == 0" ng-hide="HomeCtrl.showView != 0">
                     <div class="newUser" ng-model-options="{allowInvalid: true, debounce: 200}">
                         <form name="HomeCtrl.formUser" ng-model="HomeCtrl.formUser" class="newUser__form" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
@@ -104,8 +104,10 @@
                 </div>
                 <!-- Container button Create and Modify -->
                 <div class="button__Create__Modify__User">
-                        <button ng-if="!HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" ng-click="HomeCtrl.addNewUser()">Create</button>
-                        <button ng-if="HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" ng-click="HomeCtrl.modifyUser()">Modify</button>
+                        <!-- <button ng-if="!HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" ng-click="HomeCtrl.addNewUser()">Create</button>
+                        <button ng-if="HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" ng-click="HomeCtrl.modifyUser()">Modify</button> -->
+                        <button ng-if="!HomeCtrl.edit" ng-click="HomeCtrl.addNewUser()">Create</button>
+                        <button ng-if="HomeCtrl.edit" ng-click="HomeCtrl.modifyUser()">Modify</button>
                 </div>
             </div>
         </div>

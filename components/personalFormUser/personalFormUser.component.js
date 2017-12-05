@@ -13,23 +13,27 @@
             controller: PersonalUserController,
             controllerAs: '$PUS',
             bindings: {
-                user: '=',
+                userId: '=',
                 form: '='
             },
         });
 
-    PersonalUserController.$inject = ['GiphyServerProvider'];
-    function PersonalUserController(GiphyServerProvider) {
+    PersonalUserController.$inject = ['UserLocalProvider'];
+    function PersonalUserController(ULP) {
+        /////////////////////////////////////////////////////////////
         var $PUS = this;
-        ////////////////
+        $PUS.user.name = "Pepe";
+        /////////////////////////////////////////////////////////////
         $PUS.$onInit = function() {
-            $PUS
+
         };
         $PUS.$onChanges = function(changesObj) {
-
+            
         };
         $PUS.$onDestroy = function() {
 
         };
+        /////////////////////////////////////////////////////////////
+        
     }
 })();
