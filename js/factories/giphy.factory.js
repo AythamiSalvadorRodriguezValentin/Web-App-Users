@@ -7,10 +7,14 @@
 
     GiphyServerProvider.$inject = ['$http'];
     function GiphyServerProvider($http) {
+        let GSP = this;
+        ///////////////////////// VAR FACTORY GIPHY /////////////////////////
+        GSP.offsetGiphy = 0;
+        GSP.numberGifs = 8;
+        ////////////////////// RETURN FACTORY FUCTION ///////////////////////
         var service = {
             getGifsById:getGifsById,
-            getGifsRecents:getGifsRecents,
-            getGifsTrending:getGifsTrending
+            getGifsType:getGifsType,
         };
         return service;
         /////////////////////////// FUCTION GYPHY ///////////////////////////
@@ -23,23 +27,20 @@
                     .then(successFuction)
                     .catch(errorFuction);
         }
-        function getGifsRecents(data_recent, _offset) {
-            let url = 'https://api.giphy.com/v1/gifs/search?&q=';
-            let data = data_recent;
+        function getGifsType(object) {
+            let url = 'https://api.giphy.com/v1/gifs/' + object.type + '?&q=';
+            let data = object.text;
             let apikey = '&api_key=7jnRALOECevpKEne61XACCAhBWBgz348';
-            let offset = '&offset=';
+            let offset = "&offset=";
+            if(object.offset){
+                if(object.direction) GSP.offsetGiphy += GSP.numberGifs;
+                else {
+                    if(GSP.offsetGiphy > GSP.numberGifs) GSP.offsetGiphy -= GSP.numberGifs;
+                    else GSP.offsetGiphy = 0;
+                }
+            } else GSP.offsetGiphy = 0;
             return $http
-                    .get(url + data + apikey + offset + _offset)
-                    .then(successFuction)
-                    .catch(errorFuction);
-        }
-        function getGifsTrending(data_trending, _offset) {
-            let url = 'https://api.giphy.com/v1/gifs/trending?&q=';
-            let data = data_trending;
-            let apikey = '&api_key=7jnRALOECevpKEne61XACCAhBWBgz348';
-            let offset = '&offset=';
-            return $http
-                    .get(url + data + apikey + offset + _offset)
+                    .get(url + data + apikey + offset + GSP.offsetGiphy)
                     .then(successFuction)
                     .catch(errorFuction);
         }
@@ -52,7 +53,7 @@
                 object.id = g.id;
                 object.photo = g.images.downsized.url;
                 if(!giphyList.includes(object)) giphyList.push(object);
-                if(giphyList.length >= 9) break;
+                if(giphyList.length >= GSP.numberGifs) break;
             }
             return giphyList;
         };

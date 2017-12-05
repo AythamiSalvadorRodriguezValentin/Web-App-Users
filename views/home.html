@@ -2,7 +2,7 @@
 
 
 
-<div class="container-fluid">
+<div class="container-fluid" ng-cloak>
     <div class="row">
         <div class="col-md-5 col-lg-5">
             <div class="container__user">
@@ -29,9 +29,9 @@
             <div class="container__R">
                 <div class="nav__bar">
                     <ul>
-                        <li ng-click="HomeCtrl.changeView(0)">Users</li>
-                        <li ng-click="HomeCtrl.changeView(1)">Giphy</li>
-                        <li ng-click="HomeCtrl.changeView(2)">Marvel</li>
+                        <li ng-click="HomeCtrl.showView = 0">Users</li>
+                        <li ng-click="HomeCtrl.showView = 1">Giphy</li>
+                        <li ng-click="HomeCtrl.showView = 2">Marvel</li>
                     </ul>
                 </div>
                 <!-- Container User Perfil -->
@@ -58,22 +58,22 @@
                     </div>
                     <div class="user__search">
                         <form name="HomeCtrl.formSG">
-                            <input name="HomeCtrl.SG" type="text" placeholder="Search Giphy" ng-model="HomeCtrl.search_giphy" ng-required="true" ng-minlength="1">
+                            <input name="HomeCtrl.SG" type="text" placeholder="Search Giphy" ng-model="HomeCtrl.search_giphy.text" ng-required="true" ng-minlength="1">
                         </form>
                         <p class="user__search__type">
-                            <a class="user__search__type__recent" ng-class="{blackStyle:(HomeCtrl.rectOrTrend)}" ng-click="HomeCtrl.RecentsTrending(true)">Recents</a>
-                            <a class="user__search__type__trending" ng-class="{blackStyle:(!HomeCtrl.rectOrTrend)}" ng-click="HomeCtrl.RecentsTrending(false)">Trending</a>
+                            <a class="user__search__type__recent" ng-class="{blackStyle:(HomeCtrl.typeGiphy=='search')}" ng-click="HomeCtrl.typeGiphy='search'">Recents</a>
+                            <a class="user__search__type__trending" ng-class="{blackStyle:(HomeCtrl.typeGiphy=='trending')}" ng-click="HomeCtrl.typeGiphy='trending'">Trending</a>
                         </p>
-                        <button ng-disabled="HomeCtrl.formSG.$invalid" ng-click="HomeCtrl.getGiphies()">Search Giphy</button>
+                        <button ng-disabled="HomeCtrl.formSG.$invalid" ng-click="HomeCtrl.getGiphies(false)">Search Giphy</button>
                     </div>
                     <div class="user__show__container--general">
-                        <div class="type__change--left"><img src="/img/flecha-left.png"></div>
+                        <div class="type__change--left" ng-click="HomeCtrl.getGiphies(true, false)"><img src="/img/flecha-left.png"></div>
                         <div class="user__show__container">
                             <div class="user__show__views" ng-repeat="giphy in HomeCtrl.giphyList track by giphy.id">
                                 <img class="user__show__views__photo__gifs" ng-class="{borderBlackStyle:HomeCtrl.checkGiphyUser(giphy)}" ng-click="HomeCtrl.addGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
                             </div>
                         </div>
-                        <div class="type__change--right"><img src="../img/flecha-right.png"></div>
+                        <div class="type__change--right" ng-click="HomeCtrl.getGiphies(true, true)"><img src="../img/flecha-right.png"></div>
                     </div>
                 </div>
                 <!-- Container Marvel -->
@@ -85,20 +85,20 @@
                     </div>
                     <div class="user__search">
                         <form name="HomeCtrl.formSM">
-                            <input type="text" placeholder="Search Marvel" ng-model="HomeCtrl.search_marvel" ng-required="true" ng-minlength="1">
+                            <input type="text" placeholder="Search Marvel" ng-model="HomeCtrl.search_marvel.text" ng-required="true" ng-minlength="1">
                             <select class="user__search__select" ng-model="HomeCtrl.typeMarvel" ng-required="true">
                                 <option disabled selected value>--Please select--</option>
                                 <option ng-repeat="marvel in HomeCtrl.marvelListSelect track by $index">{{marvel}}</option>
                             </select>
                         </form>
-                        <button ng-disabled="HomeCtrl.formSM.$invalid" ng-click="HomeCtrl.getMarvel()">Search Marvel</button>
+                        <button ng-disabled="HomeCtrl.formSM.$invalid" ng-click="HomeCtrl.getMarvel(false)">Search Marvel</button>
                     </div>
                     <div class="user__show__container__marvel">
-                        <div class="type__change--left"><img src="/img/flecha-left.png"></div>
+                        <div class="type__change--left" ng-click="HomeCtrl.getMarvel(true, false)"><img src="/img/flecha-left.png"></div>
                         <div class="user__show__views__marvel" ng-repeat="marvel in HomeCtrl.marvelList track by marvel.id">
                             <img class="user__show__views__photo__marvel" ng-class="{borderBlackStyle:HomeCtrl.checkMarvelUser(marvel)}" ng-click="HomeCtrl.addMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
                         </div>
-                        <div class="type__change--right"><img src="../img/flecha-right.png"></div>
+                        <div class="type__change--right" ng-click="HomeCtrl.getMarvel(true, true)"><img src="../img/flecha-right.png"></div>
                     </div>
                 </div>
                 <!-- Container button Create and Modify -->

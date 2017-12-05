@@ -14,7 +14,6 @@
         vm.edit = false;
         vm.showView = 0;
         ///////////////////// FUCTION SCOPE USER ///////////////////
-        vm.changeView = changeView;
         vm.addNewUser = addNewUser;
         vm.showUser = showUser;
         vm.editUser = editUser;
@@ -25,10 +24,9 @@
         vm.go = go;
         ///////////////////// VAR SCOPE USER ///////////////////////
         vm.giphyList = [];
-        vm.search_giphy = '';
-        vm.offsetGiphy = 0;
+        vm.search_giphy = {};
         // Recent: true; Trending: false
-        vm.rectOrTrend = true;
+        vm.typeGiphy = 'search';
         ///////////////////// FUCTION SCOPE GIPHY //////////////////
         vm.getGiphies = getGiphies;
         vm.RecentsTrending = RecentsTrending;
@@ -38,10 +36,9 @@
         vm.checkGiphyUser = checkGiphyUser;
         ///////////////////////// VAR MARVEL ///////////////////////
         vm.marvelListSelect = [];
-        vm.search_marvel = '';
+        vm.search_marvel = {};
         vm.marvelList = [];
         vm.typeMarvel = '';
-        vm.offsetMarvel = 0;
         ////////////////////////// FUCTION MARVEL ////////////////////
         vm.getMarvel = getMarvel;
         ////////////////////////// USER MARVEL ///////////////////////
@@ -53,12 +50,13 @@
         ////////////////////////// FUCTION INIT ////////////////////
         function activate() {
             vm.usersList = ULP.getUsersAll();
-            vm.marvelListSelect = MSP.getTypeCharacters();
+            vm.marvelListSelect = MSP.getTypes();
+            vm.search_giphy = {text:'', type:'', offset:false, direction:false};
+            vm.search_marvel = {text:'', type:'', offset:false, direction:false}
+            vm.user.giphy = [];
+            vm.user.marvel = [];
         };
         ////////////////////////// FUCTION USER ////////////////////
-        function changeView(view){
-            vm.showView = view;
-        }
         function addNewUser(){
             vm.user = ULP.addUser(vm.user);
             vm.usersList.push(vm.user);
@@ -98,10 +96,12 @@
             $location.path(url);
         };
         ////////////////////////// FUCTION GIPHY ////////////////////
-        function getGiphies(){
-            if(vm.rectOrTrend) GSP.getGifsRecents(vm.search_giphy, vm.offsetGiphy).then(response => vm.giphyList = response).catch(errorFuction);
-            else  GSP.getGifsTrending(vm.search_giphy, vm.offsetGiphy).then(response => vm.giphyList = response).catch(errorFuction);
-            vm.search_giphy = '';
+        function getGiphies(offset, direction){
+            vm.search_giphy.offset = offset;
+            vm.search_giphy.direction = direction;
+            vm.search_giphy.type = vm.typeGiphy;
+            if(vm.rectOrTrend) GSP.getGifsType(vm.search_giphy).then(response => vm.giphyList = response).catch(errorFuction);
+            else  GSP.getGifsType(vm.search_giphy).then(response => vm.giphyList = response).catch(errorFuction);
         };
         function errorFuction(response){
             console.error(response);
@@ -111,7 +111,6 @@
         }
         ////////////////////////// USER GIPHY ///////////////////////
         function addGifsFav(Giphy){
-            if(typeof vm.user.giphy =='undefined') vm.user.giphy = [];
             if (!vm.user.giphy.includes(Giphy)) vm.user.giphy.push(Giphy);
             ULP.updateUser(vm.user);
         }
@@ -122,17 +121,17 @@
             ULP.updateUser(vm.user);
         }
         function checkGiphyUser(Giphy){
-            if(typeof vm.user.giphy =='undefined') vm.user.giphy = [];
             return vm.user.giphy.includes(Giphy);
         }
         ////////////////////////// FUCTION MARVEL ////////////////////
-        function getMarvel(){
-            MSP.getMarvelFct(vm.typeMarvel, vm.search_marvel).then(response => vm.marvelList = response).catch(errorFuction);
-            vm.search_marvel = '';
+        function getMarvel(offset, direction){
+            vm.search_marvel.offset = offset;
+            vm.search_marvel.direction = direction;
+            vm.search_marvel.type = vm.typeMarvel;
+            MSP.getMarvelFct(vm.search_marvel).then(response => vm.marvelList = response).catch(errorFuction);
         };
         ////////////////////////// USER MARVEL ///////////////////////
         function addMarvelFav(Marvel){
-            if(typeof vm.user.marvel =='undefined') vm.user.marvel = [];
             if (!vm.user.marvel.includes(Marvel)) vm.user.marvel.push(Marvel);
             ULP.updateUser(vm.user);
         }
@@ -143,7 +142,6 @@
             ULP.updateUser(vm.user);
         }
         function checkMarvelUser(Marvel){
-            if(typeof vm.user.marvel =='undefined') vm.user.marvel = [];
             return vm.user.marvel.includes(Marvel);
         }
     }
