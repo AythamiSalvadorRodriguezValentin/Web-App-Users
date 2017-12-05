@@ -15,7 +15,6 @@
         vm.showView = 0;
         ///////////////////// FUCTION SCOPE USER ///////////////////
         vm.addNewUser = addNewUser;
-        vm.showUser = showUser;
         vm.editUser = editUser;
         vm.modifyUser = modifyUser;
         vm.removeUser = removeUser;
@@ -61,8 +60,6 @@
             vm.user = ULP.addUser(vm.user);
             vm.usersList.push(vm.user);
             vm.user = {};
-        }
-        function showUser(id){
         };
         function editUser(id){
             vm.user = ULP.getUser(id);
