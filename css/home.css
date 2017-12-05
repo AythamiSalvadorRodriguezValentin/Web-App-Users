@@ -23,8 +23,9 @@ input.ng-valid{
 }
 .user{
     margin: 35px;
-    width: 600px;
-    height: 300px;
+    padding: 20px;
+    max-width: 600px;
+    max-height: 300px;
     border: 3px ridge rgba(165, 42, 42, 0.5);
     background-color: rgba(247, 169, 81, 0.555);
     display: flex;
@@ -33,13 +34,13 @@ input.ng-valid{
     align-items: center;
 }
 .user__photo{
-    margin-left: 50px;
-    width: 200px;
-    height: 200px;
+    margin: 5px;
+    max-width: 200px;
+    max-height: 200px;
 }
 .user__photo img{
-    width: 200px;
-    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
     object-fit: contain;
     background-color: white;
     border: 1px solid white;
@@ -47,22 +48,25 @@ input.ng-valid{
 }
 .user__prev{
     width: 300px;
+    margin: 5px;
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     align-items: space-between;
 }
 .user__prev__data{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding: 10px;
 }
 .user__prev__data p{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     font-weight: 100;
     text-align: left;
+}
+.user__prev__data_button{
+    display: inline-flex;
 }
 .user__prev__data_button button{
     background-color: transparent;
@@ -73,7 +77,7 @@ input.ng-valid{
 }
 /*_____NAV BAR____*/
 .nav__bar{
-    width: 500px;
+    width: 95%;
     height: 40px;
     display: flex;
     margin-top: 10px;
@@ -149,7 +153,7 @@ input.ng-valid{
     align-items: center;
 }
 .user__favourite__container{
-    width: 500px;
+    width: 95%;
     height: 200px;
     display: flex;
     flex-flow: row wrap;
@@ -220,7 +224,7 @@ input.ng-valid{
     text-decoration: none;
 }
 .user__show_container{
-    width: 500px;
+    width: 95%;
     height: 100%;
     display: flex;
     flex-flow: row wrap;
