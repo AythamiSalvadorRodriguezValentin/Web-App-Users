@@ -1,0 +1,49 @@
+/*_____Data User______*/
+.agend__user__data__personal__container{
+    border: 1px solid rgba(128, 255, 0, 0.4);
+    background-color: rgba(156, 205, 50, 0.4);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.agend__user__data__personal{
+    width: 100%;
+    margin: 7%;
+    padding: 5px;
+    overflow: scroll;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.agend__user__data__personal__photo{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+}
+.agend__user__data__personal__photo img{
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 1px ridge rgba(165, 42, 42, 0.5);
+    background-color: white;
+}
+.agend__user__data__personal__information{
+    width: 90%;
+    height: 140px;
+    border: 1px ridge rgba(165, 42, 42, 0.5);
+    background-color: rgba(247, 169, 81, 0.555);
+    margin:20px;
+}
+.agend__user__data__personal__information p{
+    margin-left: 20px;
+}
+.agend__user__data__personal__information--title{
+    margin-left: 20px;
+}
