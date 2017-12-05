@@ -15,23 +15,31 @@
         return service;
         /////////////////////////// FUCTION GYPHY ///////////////////////////
         function getGifsById(data_id) {
-            let url = 'https://api.giphy.com/v1/gifs/' + data_id + '?api_key=7jnRALOECevpKEne61XACCAhBWBgz348';
+            let url = 'https://api.giphy.com/v1/gifs/';
+            let data = data_id;
+            let apikey = '&api_key=7jnRALOECevpKEne61XACCAhBWBgz348';
             return $http
-                    .get(url)
+                    .get(url + data + apikey)
                     .then(successFuction)
                     .catch(errorFuction);
         }
-        function getGifsRecents(data_recent) {
-            let url = 'https://api.giphy.com/v1/gifs/search?api_key=7jnRALOECevpKEne61XACCAhBWBgz348&q=' + data_recent;
+        function getGifsRecents(data_recent, _offset) {
+            let url = 'https://api.giphy.com/v1/gifs/search?&q=';
+            let data = data_recent;
+            let apikey = '&api_key=7jnRALOECevpKEne61XACCAhBWBgz348';
+            let offset = '&offset=';
             return $http
-                    .get(url)
+                    .get(url + data + apikey + offset + _offset)
                     .then(successFuction)
                     .catch(errorFuction);
         }
-        function getGifsTrending(data_trending) {
-            let url = 'https://api.giphy.com/v1/gifs/trending?api_key=7jnRALOECevpKEne61XACCAhBWBgz348&q=' + data_trending;
+        function getGifsTrending(data_trending, _offset) {
+            let url = 'https://api.giphy.com/v1/gifs/trending?&q=';
+            let data = data_trending;
+            let apikey = '&api_key=7jnRALOECevpKEne61XACCAhBWBgz348';
+            let offset = '&offset=';
             return $http
-                    .get(url)
+                    .get(url + data + apikey + offset + _offset)
                     .then(successFuction)
                     .catch(errorFuction);
         }
@@ -44,7 +52,7 @@
                 object.id = g.id;
                 object.photo = g.images.downsized.url;
                 if(!giphyList.includes(object)) giphyList.push(object);
-                if(giphyList.length >= 8) break;
+                if(giphyList.length >= 9) break;
             }
             return giphyList;
         };

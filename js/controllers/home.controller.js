@@ -26,6 +26,7 @@
         ///////////////////// VAR SCOPE USER ///////////////////////
         vm.giphyList = [];
         vm.search_giphy = '';
+        vm.offsetGiphy = 0;
         // Recent: true; Trending: false
         vm.rectOrTrend = true;
         ///////////////////// FUCTION SCOPE GIPHY //////////////////
@@ -40,6 +41,7 @@
         vm.search_marvel = '';
         vm.marvelList = [];
         vm.typeMarvel = '';
+        vm.offsetMarvel = 0;
         ////////////////////////// FUCTION MARVEL ////////////////////
         vm.getMarvel = getMarvel;
         ////////////////////////// USER MARVEL ///////////////////////
@@ -97,8 +99,8 @@
         };
         ////////////////////////// FUCTION GIPHY ////////////////////
         function getGiphies(){
-            if(vm.rectOrTrend) GSP.getGifsRecents(vm.search_giphy).then(response => vm.giphyList = response).catch(errorFuction);
-            else  GSP.getGifsTrending(vm.search_giphy).then(response => vm.giphyList = response).catch(errorFuction);
+            if(vm.rectOrTrend) GSP.getGifsRecents(vm.search_giphy, vm.offsetGiphy).then(response => vm.giphyList = response).catch(errorFuction);
+            else  GSP.getGifsTrending(vm.search_giphy, vm.offsetGiphy).then(response => vm.giphyList = response).catch(errorFuction);
             vm.search_giphy = '';
         };
         function errorFuction(response){

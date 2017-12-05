@@ -215,39 +215,59 @@
     color: rgb(155, 83, 7);
     text-decoration: none;
 }
-.user__show_container{
+.user__show__container--general{
     width: 95%;
     height: 100%;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    overflow: scroll;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
     margin: 10px;
     border: 1px ridge rgba(165, 42, 42, 0.5);
     background-color: rgba(247, 169, 81, 0.555);
 }
-.user__show_container__marvel{
+.user__show__container{
     width: 95%;
     height: 100%;
     display: flex;
     flex-flow: row wrap;
+    overflow: scroll;
     justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.user__show__container__marvel{
+    width: 95%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     align-items: center;
     overflow: scroll;
     margin: 10px;
     border: 1px ridge rgba(165, 42, 42, 0.5);
     background-color: rgba(247, 169, 81, 0.555);
 }
+.type__change--left{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+}
+.type__change--right{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+}
 .user__show__views{
     width: 200px;
     height: 200px;
-    margin: 5px;
+    margin: 10px;
     display: flex;
     flex-flow: row wrap;
 }
 .user__show__views__marvel{
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     margin: 5px;
     display: flex;
     justify-content: space-around;
@@ -261,8 +281,8 @@
     border-image: 1px solid bisque;
 }
 .user__show__views__photo__marvel{
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     object-fit: contain;
     border-image: 1px solid bisque;
 }
