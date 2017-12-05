@@ -5,20 +5,23 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-            <div class="user" ng-repeat="user in HomeCtrl.usersList track by user.id">
-                <div class="user__photo">
-                    <img ng-click="HomeCtrl.go(user.id)" ng-src="{{user.photo}}" onerror="this.src='/img/no_image.png'">
-                </div>
-                <div class="user__prev">
-                    <p class="user__prev__data">
-                        {{user.name}}
-                        {{user.phone}}
-                        <div class="user__prev__data_button">
-                            <button ng-click="HomeCtrl.showUser(user.id)">Show</button>
-                            <button ng-click="HomeCtrl.editUser(user.id)">Edit</button>
-                            <button ng-click="HomeCtrl.removeUser(user)">Remove</button>
-                        </div>
-                    </p>
+            <div class="container__user">
+                <div class="user" ng-repeat="user in HomeCtrl.usersList track by user.id">
+                    <div class="user__photo">
+                        <img ng-click="HomeCtrl.go(user.id)" ng-src="{{user.photo}}" onerror="this.src='/img/no_image.png'">
+                    </div>
+                    <div class="user__prev">
+                        <p class="user__prev__data">
+                            <p><b>Name:</b> {{user.name}}</p>
+                            <p><b>Phone:</b> {{user.phone}}</p>
+                            <p><b>Email:</b> {{user.email}}</p>
+                            <div class="user__prev__data_button">
+                                <button ng-click="HomeCtrl.showUser(user.id)">Show</button>
+                                <button ng-click="HomeCtrl.editUser(user.id)">Edit</button>
+                                <button ng-click="HomeCtrl.removeUser(user)">Remove</button>
+                            </div>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

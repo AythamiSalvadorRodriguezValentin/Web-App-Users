@@ -1,7 +1,3 @@
-/* 'http://gateway.marvel.com/v1/public/comics?ts=1&apikey=efb02361aedaa8eddcc39bd180263ecb&hash=8f7e5e249517eb6fb5f3adb6eb92a554' */
-
-
-
 (function() {
     'use strict';
 
