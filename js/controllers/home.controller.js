@@ -120,8 +120,12 @@
             }
             ULP.updateUser(vm.user);
         }
-        function checkGiphyUser(Giphy){
-            return vm.user.giphy.includes(Giphy);
+        function checkGiphyUser(ident){
+            for (let i = 0; i < vm.user.giphy.length; i++) {
+                const g = vm.user.giphy[i];
+                if(g.id == ident) return true;
+            }
+            return false;
         }
         ////////////////////////// FUCTION MARVEL ////////////////////
         function getMarvel(offset, direction){
@@ -141,8 +145,12 @@
             }
             ULP.updateUser(vm.user);
         }
-        function checkMarvelUser(Marvel){
-            return vm.user.marvel.includes(Marvel);
+        function checkMarvelUser(ident){
+            for (let i = 0; i < vm.user.marvel.length; i++) {
+                const g = vm.user.marvel[i];
+                if(g.id == ident) return true;
+            }
+            return false;
         }
     }
 })();

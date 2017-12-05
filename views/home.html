@@ -70,7 +70,7 @@
                         <div class="type__change--left" ng-click="HomeCtrl.getGiphies(true, false)"><img src="/img/flecha-left.png"></div>
                         <div class="user__show__container">
                             <div class="user__show__views" ng-repeat="giphy in HomeCtrl.giphyList track by giphy.id">
-                                <img class="user__show__views__photo__gifs" ng-class="{borderBlackStyle:HomeCtrl.checkGiphyUser(giphy)}" ng-click="HomeCtrl.addGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
+                                <img class="user__show__views__photo__gifs" ng-class="{borderBlackStyle:HomeCtrl.checkGiphyUser(giphy.id)}" ng-click="HomeCtrl.addGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
                             </div>
                         </div>
                         <div class="type__change--right" ng-click="HomeCtrl.getGiphies(true, true)"><img src="../img/flecha-right.png"></div>
@@ -96,7 +96,7 @@
                     <div class="user__show__container__marvel">
                         <div class="type__change--left" ng-click="HomeCtrl.getMarvel(true, false)"><img src="/img/flecha-left.png"></div>
                         <div class="user__show__views__marvel" ng-repeat="marvel in HomeCtrl.marvelList track by marvel.id">
-                            <img class="user__show__views__photo__marvel" ng-class="{borderBlackStyle:HomeCtrl.checkMarvelUser(marvel)}" ng-click="HomeCtrl.addMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
+                            <img class="user__show__views__photo__marvel" ng-class="{borderBlackStyle:HomeCtrl.checkMarvelUser(marvel.id)}" ng-click="HomeCtrl.addMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
                         </div>
                         <div class="type__change--right" ng-click="HomeCtrl.getMarvel(true, true)"><img src="../img/flecha-right.png"></div>
                     </div>
