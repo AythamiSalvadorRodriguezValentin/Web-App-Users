@@ -10,22 +10,27 @@ input.ng-valid{
 }
 /*_____USER_____*/
 .container__user{
-    margin: 50px;
+    width: 100%;
+    height: 800px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+    border: 1px solid rgba(128, 255, 0, 0.4);
+    border-right: 1px solid chartreuse;
+    background-color: rgba(156, 205, 50, 0.4);
+    overflow: scroll;
 }
 .user{
-    margin: 50px;
+    margin: 35px;
     width: 600px;
     height: 300px;
-    border: 3px ridge wheat;
-    background-color: blanchedalmond;  
+    border: 3px ridge rgba(165, 42, 42, 0.5);
+    background-color: rgba(247, 169, 81, 0.555);
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    align-items: center; 
+    align-items: center;
 }
 .user__photo{
     margin-left: 50px;
@@ -58,4 +63,44 @@ input.ng-valid{
     font-size: 14px;
     font-weight: 100;
     text-align: left;
+}
+.user__prev__data_button button{
+    background-color: transparent;
+    border-width: 0px;
+}
+.user__prev__data_button button img{
+    object-fit: contain;
+}
+/*_____NAV BAR____*/
+.nav__bar{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    border: 0.5px ridge rgba(165, 42, 42, 0.5);
+    background-color: rgba(247, 169, 81, 0.555);
+}
+.nav__bar ul{
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+}
+.nav__bar ul li{
+    padding: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 15px;
+}
+/*_____Container General Giphy and Marvel______*/
+.container_Search{
+    border: 1px solid rgba(128, 255, 0, 0.4);
+    border-left: 1px solid chartreuse;
+    background-color: rgba(156, 205, 50, 0.4);
+}
+.newUser{
+    
 }
