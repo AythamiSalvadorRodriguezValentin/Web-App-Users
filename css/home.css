@@ -135,6 +135,11 @@
     border-bottom: 2px solid white;
     background-color: rgba(0, 0, 0, 0.4);
 }
+.view__container form{
+    border: 1.5px dotted white;
+    padding: 20px;
+    border-radius: 3px 3px 3px 3px;
+}
 .view__container form input{
     width: 300px;
     height: 25px;
@@ -294,7 +299,6 @@
     overflow: scroll;
     flex-flow: row wrap;
     justify-content: center;
-    border: 1px dotted grey;
     border-radius: 5px 5px 5px 5px;
 }
 .view__type__gifs{
