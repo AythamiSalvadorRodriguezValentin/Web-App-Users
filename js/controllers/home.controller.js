@@ -31,13 +31,10 @@
         vm.marvelList = [];
         vm.typeMarvel = '';
         //////////////////////// USER TYPE FAV /////////////////////
+        vm.getTypesUser = getTypesUser;
         vm.addTypeFav = addTypeFav;
         vm.deleteTypeFav = deleteTypeFav;
         vm.checkTypeUser = checkTypeUser;
-        /////////////////////// FUCTION GIPHY //////////////////////
-        vm.getGiphies = getGiphies;
-        /////////////////////// FUCTION MARVEL /////////////////////
-        vm.getMarvel = getMarvel;
         ///////////////////////// INIT /////////////////////////////
         activate();
         ///////////////////////// FUCTION INIT /////////////////////
@@ -89,9 +86,29 @@
             $location.path(url);
         };
         //////////////////////// USER TYPE FAV /////////////////////
+        function getTypesUser(type, offset, direction){
+            if (type == 'Giphy') {
+                vm.search_giphy.offset = offset;
+                vm.search_giphy.direction = direction;
+                vm.search_giphy.type = vm.typeGiphy;
+                if(vm.typeGiphy == 'search') GSP.getGifsType(vm.search_giphy).then(response => vm.giphyList = response).catch(errorFuction);
+                else if(vm.typeGiphy == 'trending') GSP.getGifsType(vm.search_giphy).then(response => vm.giphyList = response).catch(errorFuction);
+            } else if (type == 'Marvel'){
+                vm.search_marvel.offset = offset;
+                vm.search_marvel.direction = direction;
+                vm.search_marvel.type = vm.typeMarvel;
+                MSP.getMarvelFct(vm.search_marvel).then(response => vm.marvelList = response).catch(errorFuction);
+            }
+        };
+        function errorFuction(response){
+            console.error(response);
+        };
         function addTypeFav(type, data){
             let isIn = false;
-            let arrayType = (type == 'Giphy') ? vm.user.giphy : vm.user.marvel;
+            let arrayType = [];
+            if(type == 'Giphy') arrayType = vm.user.giphy;
+            else if(type == 'Marvel') arrayType = vm.user.marvel;
+            else return;
             for (let i = 0; i < arrayType.length; i++) {
                 if (arrayType[i].id == data.id){
                     isIn = true;
@@ -105,7 +122,10 @@
             }
         }
         function deleteTypeFav(type, data){
-            let arrayType = (type == 'Giphy') ? vm.user.giphy : vm.user.marvel;
+            let arrayType = [];
+            if(type == 'Giphy') arrayType = vm.user.giphy;
+            else if(type == 'Marvel') arrayType = vm.user.marvel;
+            else return;
             for (let i = 0; i < arrayType.length; i++) {
                 if (arrayType[i].id == data.id){
                     arrayType.splice(i,1);
@@ -117,29 +137,14 @@
         }
         function checkTypeUser(type, ident){
             if(!vm.edit) return;
-            let arrayType = (type == 'Giphy') ? vm.user.giphy : vm.user.marvel;
+            let arrayType = [];
+            if(type == 'Giphy') arrayType = vm.user.giphy;
+            else if(type == 'Marvel') arrayType = vm.user.marvel;
+            else return;
             for (let i = 0; i < arrayType.length; i++) {
                 if(arrayType[i].id == ident) return true;
             }
             return false;
         }
-        /////////////////////// FUCTION GIPHY //////////////////////
-        function getGiphies(offset, direction){
-            vm.search_giphy.offset = offset;
-            vm.search_giphy.direction = direction;
-            vm.search_giphy.type = vm.typeGiphy;
-            if(vm.typeGiphy == 'search') GSP.getGifsType(vm.search_giphy).then(response => vm.giphyList = response).catch(errorFuction);
-            else if(vm.typeGiphy == 'trending') GSP.getGifsType(vm.search_giphy).then(response => vm.giphyList = response).catch(errorFuction);
-        };
-        function errorFuction(response){
-            console.error(response);
-        };
-        //////////////////////// FUCTION MARVEL /////////////////////
-        function getMarvel(offset, direction){
-            vm.search_marvel.offset = offset;
-            vm.search_marvel.direction = direction;
-            vm.search_marvel.type = vm.typeMarvel;
-            MSP.getMarvelFct(vm.search_marvel).then(response => vm.marvelList = response).catch(errorFuction);
-        };
     }
 })();

@@ -63,10 +63,10 @@
                             <a class="user__search__type__recent" ng-class="{blackStyle:(HomeCtrl.typeGiphy=='search')}" ng-click="HomeCtrl.typeGiphy='search'">Recents</a>
                             <a class="user__search__type__trending" ng-class="{blackStyle:(HomeCtrl.typeGiphy=='trending')}" ng-click="HomeCtrl.typeGiphy='trending'">Trending</a>
                         </div>
-                        <button ng-disabled="HomeCtrl.formSG.$invalid" ng-click="HomeCtrl.getGiphies(false)">Search Giphy</button>
+                        <button ng-disabled="HomeCtrl.formSG.$invalid" ng-click="HomeCtrl.getTypesUser('Giphy',false)">Search Giphy</button>
                     </div>
                     <div class="view__container--general">
-                        <div class="type__change--left" ng-click="HomeCtrl.getGiphies(true, false)"><img src="/img/flecha-left.png"></div>
+                        <div ng-hide="HomeCtrl.someType" class="type__change--left" ng-click="HomeCtrl.getGiphies(true, false)"><img src="/img/flecha-left.png"></div>
                         <div class="view__type__container">
                             <div class="view__type__gifs" ng-repeat="giphy in HomeCtrl.giphyList track by giphy.id">
                                 <img class="views__photo__gifs" ng-class="{borderBlackStyle:HomeCtrl.checkTypeUser('Giphy',giphy.id)}" ng-click="HomeCtrl.addTypeFav('Giphy',giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
@@ -90,10 +90,10 @@
                                 <option ng-repeat="marvel in HomeCtrl.marvelListSelect track by $index">{{marvel}}</option>
                             </select>
                         </form>
-                        <button ng-disabled="HomeCtrl.formSM.$invalid" ng-click="HomeCtrl.getMarvel(false)">Search Marvel</button>
+                        <button ng-disabled="HomeCtrl.formSM.$invalid" ng-click="HomeCtrl.getTypesUser('Marvel',false)">Search Marvel</button>
                     </div>
                     <div class="view__container--general">
-                        <div class="type__change--left" ng-click="HomeCtrl.getMarvel(true, false)"><img src="/img/flecha-left.png"></div>
+                        <div ng-hide="HomeCtrl.someType" class="type__change--left" ng-click="HomeCtrl.getMarvel(true, false)"><img src="/img/flecha-left.png"></div>
                         <div class="view__type__container">
                             <div class="view__type__marvel" ng-repeat="marvel in HomeCtrl.marvelList track by marvel.id">
                                 <img class="views__photo__marvel" ng-class="{borderBlackStyle:HomeCtrl.checkTypeUser('Marvel',marvel.id)}" ng-click="HomeCtrl.addTypeFav('Marvel',marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
