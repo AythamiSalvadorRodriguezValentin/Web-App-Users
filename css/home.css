@@ -200,7 +200,7 @@
 .view__favourite__photo{
     width: 150px;
     height: 150px;
-    object-fit: cover;
+    object-fit: contain;
 }
 .user__search{
     width: 100%;
