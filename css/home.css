@@ -278,7 +278,7 @@
     align-items: center;
     background-color: white;
     border-radius: 5px 5px 5px 5px;
-    justify-content: space-between;
+    justify-content: center;
 }
 .type__change--left{
     width: 10%;

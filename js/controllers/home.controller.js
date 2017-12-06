@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-
+    ////////////////////////////////////////////////////////////
     angular
         .module('Agend_User')
         .controller('HomeController', HomeController);
@@ -21,15 +21,17 @@
         vm.removeUser = removeUser;
         ////////////////////// NAV PERFIL USER /////////////////////
         vm.go = go;
-        ///////////////////////// VAR GIPHY ////////////////////////
+        ///////////////////////// VAR TYPE ////////////////////////
         vm.giphyList = [];
         vm.search_giphy = {};
         vm.typeGiphy = 'search';
-        ///////////////////////// VAR MARVEL ///////////////////////
         vm.marvelListSelect = [];
         vm.search_marvel = {};
         vm.marvelList = [];
         vm.typeMarvel = '';
+        vm.directionArrow = 0;
+        vm.ArrowLeft = true;
+        vm.ArrowRight = true;
         //////////////////////// USER TYPE FAV /////////////////////
         vm.getTypesUser = getTypesUser;
         vm.addTypeFav = addTypeFav;
@@ -87,6 +89,7 @@
         };
         //////////////////////// USER TYPE FAV /////////////////////
         function getTypesUser(type, offset, direction){
+            vm.ArrowRight = false;
             if (type == 'Giphy') {
                 vm.search_giphy.offset = offset;
                 vm.search_giphy.direction = direction;
@@ -98,6 +101,15 @@
                 vm.search_marvel.direction = direction;
                 vm.search_marvel.type = vm.typeMarvel;
                 MSP.getMarvelFct(vm.search_marvel).then(response => vm.marvelList = response).catch(errorFuction);
+            }
+            if (offset){
+                if(direction) vm.direction++; 
+                else vm.direction--;
+                if(vm.direction > 0) vm.ArrowLeft = false;
+                else vm.ArrowLeft = true;
+            } else{
+                vm.direction = 0;
+                vm.ArrowLeft = true;
             }
         };
         function errorFuction(response){
@@ -146,5 +158,6 @@
             }
             return false;
         }
+        ////////////////////////////////////////////////////////////
     }
 })();
