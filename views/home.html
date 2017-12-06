@@ -30,13 +30,13 @@
             <div class="container__R">
                 <div class="nav__bar">
                     <ul>
-                        <li ng-click="HomeCtrl.showView = 0">Users</li>
-                        <li ng-click="HomeCtrl.showView = 1">Giphy</li>
-                        <li ng-click="HomeCtrl.showView = 2">Marvel</li>
+                        <li ng-click="HomeCtrl.showView = 'User'">Users</li>
+                        <li ng-click="HomeCtrl.showView = 'Giphy'">Giphy</li>
+                        <li ng-click="HomeCtrl.showView = 'Marvel'">Marvel</li>
                     </ul>
                 </div>
                 <!-- Container User Perfil -->
-                <div class="view__container" ng-show="HomeCtrl.showView == 0" ng-model-options="{allowInvalid: true, debounce: 200}" ng-cloak>
+                <div class="view__container" ng-show="HomeCtrl.showView == 'User'" ng-model-options="{allowInvalid: true, debounce: 200}" ng-cloak>
                     <form name="HomeCtrl.formUser" class="newUser__form" ng-model="HomeCtrl.formUser" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
                         <h3>Name: </h3>
                         <input type="text" placeholder="Name user" ng-required="true" ng-model="HomeCtrl.user.name" ng-minlength="3" ng-maxlength="10" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
@@ -49,7 +49,7 @@
                     </form>
                 </div>
                 <!-- Container Gifs -->
-                <div class="view__container__favourite" ng-show="HomeCtrl.showView == 1">
+                <div class="view__container__favourite" ng-show="HomeCtrl.showView == 'Giphy'">
                     <div class="view__favourite__container">
                         <div class="view__favourite" ng-repeat="giphy in HomeCtrl.user.giphy track by giphy.id">
                             <img class="view__favourite__photo" ng-click="HomeCtrl.deleteTypeFav('Giphy',giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <!-- Container Marvel -->
-                <div class="view__container__favourite" ng-show="HomeCtrl.showView == 2" ng-hide="HomeCtrl.showView != 2">
+                <div class="view__container__favourite" ng-show="HomeCtrl.showView == 'Marvel'" ng-hide="HomeCtrl.showView != 2">
                     <div class="view__favourite__container">
                         <div class="view__favourite" ng-repeat="marvel in HomeCtrl.user.marvel track by marvel.id">
                             <img class="view__favourite__photo" ng-click="HomeCtrl.deleteTypeFav('Marvel',marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
@@ -103,8 +103,8 @@
                     </div>
                 </div>
                 <!-- Container button Create and Modify -->
-                <div class="button__Create__Modify__User">
-                    <button ng-if="!HomeCtrl.edit" ng-disabled="HomeCtrl.formUser.$invalid" ng-class="{borderGreenStyle:HomeCtrl.formUser.$valid}" ng-click="HomeCtrl.addNewUser()">Create</button>
+                <div class="button__User">
+                    <button ng-if="!HomeCtrl.edit && HomeCtrl.showView == 'User'" ng-disabled="HomeCtrl.formUser.$invalid" ng-class="{borderGreenStyle:HomeCtrl.formUser.$valid}" ng-click="HomeCtrl.addNewUser()">Create</button>
                     <button ng-if="HomeCtrl.edit" ng-disabled="HomeCtrl.formUser.$invalid" ng-class="{borderGreenStyle:HomeCtrl.formUser.$valid}" ng-click="HomeCtrl.modifyUser()">Modify</button>
                 </div>
             </div>

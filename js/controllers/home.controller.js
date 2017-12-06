@@ -12,7 +12,7 @@
         vm.usersList = [];
         vm.user = {};
         vm.edit = false;
-        vm.showView = 0;
+        vm.showView = 'User';
         //////////////////////// FUCTION USER //////////////////////
         vm.resetVar = resetVar;
         vm.addNewUser = addNewUser;
@@ -59,6 +59,7 @@
             vm.resetVar();
         };
         function editUser(id){
+            vm.edit = false;
             vm.resetVar();
             vm.user = ULP.getUser(id);
             vm.edit = true;
