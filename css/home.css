@@ -1,7 +1,7 @@
 /*_____USER_____*/
-.container__user{
+.user__container{
     width: 100%;
-    max-height: 1000px;
+    max-height: 800px;
     display: flex;
     overflow: scroll;
     flex-flow: row wrap;
@@ -95,7 +95,7 @@
 /*_____NAV BAR____*/
 .nav__bar{
     width: 100%;
-    height: 40px;
+    height: 60px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -119,15 +119,15 @@
 }
 /*_____Container General Giphy and Marvel______*/
 .container__R{
-    height: 100%;
+    width: 100%;
+    height: 800px;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items: center;
 }
-.user__container{
+.view__container{
     width: 100%;
-    height: 600px;
+    min-height: 600px;
+    max-height: 1000px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -135,7 +135,7 @@
     border-bottom: 2px solid white;
     background-color: rgba(0, 0, 0, 0.4);
 }
-.user__container form input{
+.view__container form input{
     width: 300px;
     height: 25px;
     box-sizing: content-box;
@@ -143,7 +143,7 @@
     border: 2px solid rgba(0, 0, 0, 0.4);
     border-radius: 5px 5px 5px 5px;
 }
-.user__container form input::-webkit-input-placeholder{
+.view__container form input::-webkit-input-placeholder{
     color: black;
     padding-left: 5px;
 }
@@ -163,154 +163,163 @@
     background-color: transparent;
 }
 /*_____Container Giphy and Marvel_____*/
-.gifs__container{
+.view__container__favourite{
     width: 100%;
-    height: 650px;
+    min-height: 600px;
+    max-height: 800px;
+    padding: 20px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    border-bottom: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.4);
 }
-.user__favourite__container{
-    width: 95%;
+.view__favourite__container{
+    width: 100%;
     height: 200px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     overflow: scroll;
-    margin: 10px;
-    border: 1px ridge rgba(165, 42, 42, 0.5);
-    background-color: rgba(247, 169, 81, 0.555);
+    padding: 10px;
+    border-radius: 5px 5px 5px 5px;
+    background-color: white;
 }
-.user__favourite{
-    width: 200px;
-    height: 200px;
-    margin: 5px;
+.view__favourite{
+    width: 150px;
+    height: 150px;
+    margin: 10px;
     display: flex;
     flex-flow: row wrap;
 }
-.user__favourite__photo{
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-    border-image: 1px solid bisque;
+.view__favourite__photo{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
 }
 .user__search{
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
     display: inline-flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    margin: 0 auto;
+    overflow: scroll;
 }
 .user__search button{
-    border: 1px ridge rgba(165, 42, 42, 0.5);
-    background-color: rgba(247, 169, 81, 0.555);
-    box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(165, 42, 42, 0.5);
+    width: 170px;
+    height: 35px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px 5px 5px 5px;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 .user__search form input{
-    border: 1px ridge rgba(165, 42, 42, 0.5);
-    background-color: rgba(247, 169, 81, 0.555);
-    border-radius: 7px 7px 7px 7px;
+    width: 200px;
+    height: 35px;
+    border-width: 0px;
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
 }
 .user__search form input::-webkit-input-placeholder{
     color: black;
     padding-left: 5px;
 }
 .user__search__select{
+    height: 35px;
+    width: 200px;
     margin: 20px;
-    height: 25px;
-    width: 150px;
-    border: 1px ridge rgba(165, 42, 42, 0.5);
-    background-color: rgba(247, 169, 81, 0.555);
+    background-color: white;
 }
 .user__search__type{
+    height: 35px;
+    width: 200px;
     margin: 20px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
 }
 .user__search__type__recent{
+    width: 200px;
     color: black;
+    padding: 10px;
     text-decoration: none;
+    border-right: 1px solid black;
 }
 .user__search__type__trending{
+    width: 200px;
     color: black;
+    padding: 10px;
     text-decoration: none;
+    border-left: 1px solid black;
 }
 .user__search__type__recent:hover{
-    color: rgb(155, 83, 7);
+    color: rgb(13, 107, 184);
     text-decoration: none;
 }
 .user__search__type__trending:hover{
-    color: rgb(155, 83, 7);
+    color: rgb(13, 107, 184);
     text-decoration: none;
 }
-.user__show__container--general{
-    width: 95%;
-    height: 100%;
+.view__container--general{
+    width: 100%;
+    height: 500px;
     display: flex;
     flex-flow: row nowrap;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
     justify-content: space-between;
-    align-items: center;
-    margin: 10px;
-    border: 1px ridge rgba(165, 42, 42, 0.5);
-    background-color: rgba(247, 169, 81, 0.555);
-}
-.user__show__container{
-    width: 95%;
-    height: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    overflow: scroll;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-}
-.user__show__container__marvel{
-    width: 95%;
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    overflow: scroll;
-    margin: 10px;
-    border: 1px ridge rgba(165, 42, 42, 0.5);
-    background-color: rgba(247, 169, 81, 0.555);
 }
 .type__change--left{
+    width: 10%;
     display: flex;
     flex-flow: row;
     justify-content: flex-start;
 }
 .type__change--right{
+    width: 10%;
     display: flex;
     flex-flow: row;
     justify-content: flex-end;
 }
-.user__show__views{
-    width: 200px;
-    height: 200px;
-    margin: 10px;
+.view__type__container{
+    width: 80%;
+    height: 80%;
     display: flex;
+    overflow: scroll;
     flex-flow: row wrap;
+    justify-content: center;
+    border: 1px dotted grey;
+    border-radius: 5px 5px 5px 5px;
 }
-.user__show__views__marvel{
+.view__type__gifs{
     width: 200px;
     height: 200px;
-    margin: 5px;
     display: flex;
-    justify-content: space-around;
+    flex-flow: row nowrap;
+    justify-content: center;
     align-items: center;
-    flex-flow: row wrap;
 }
-.user__show__views__photo__gifs{
+.view__type__marvel{
     width: 200px;
-    height: 200px;
-    object-fit: contain;
-    border-image: 1px solid bisque;
+    height: 400px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
 }
-.user__show__views__photo__marvel{
-    width: 200px;
-    height: 200px;
+.views__photo__gifs{
+    width: 175px;
+    height: 175px;
     object-fit: contain;
-    border-image: 1px solid bisque;
+}
+.views__photo__marvel{
+    width: 175px;
+    height: 375px;
+    object-fit: contain;
 }
 /*_______Ng-Style_______*/
 /*_Error_Valid_*/
@@ -329,6 +338,7 @@ input.ng-untouched.ng-pristine.ng-valid-required.ng-invalid.ng-not-empty{
 }
 .borderBlackStyle{
     border: 1px solid black;
+    padding: 5px;
 }
 .borderGreenStyle{
     border: 1px solid rgb(70, 209, 15);

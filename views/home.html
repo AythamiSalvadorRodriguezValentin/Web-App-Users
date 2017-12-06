@@ -4,9 +4,9 @@
 
 <div class="container-fluid" ng-cloak>
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
             <!-- Container User Card -->
-            <div class="container__user">
+            <div class="user__container">
                 <div class="user__prev" ng-repeat="user in HomeCtrl.usersList track by user.id">
                     <div class="user__photo__1">
                         <div class="user__photo__2">
@@ -26,7 +26,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sx-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="col-sx-12 col-sm-12 col-md-6 col-lg-8">
             <div class="container__R">
                 <div class="nav__bar">
                     <ul>
@@ -36,12 +36,12 @@
                     </ul>
                 </div>
                 <!-- Container User Perfil -->
-                <div class="user__container" ng-show="HomeCtrl.showView == 0" ng-model-options="{allowInvalid: true, debounce: 200}" ng-cloak>
+                <div class="view__container" ng-show="HomeCtrl.showView == 0" ng-model-options="{allowInvalid: true, debounce: 200}" ng-cloak>
                     <form name="HomeCtrl.formUser" class="newUser__form" ng-model="HomeCtrl.formUser" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
                         <h3>Name: </h3>
                         <input type="text" placeholder="Name user" ng-required="true" ng-model="HomeCtrl.user.name" ng-minlength="3" ng-maxlength="10" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
                         <h3>E-mail: </h3>
-                        <input type="email" placeholder="Email user" ng-required="true" ng-model="HomeCtrl.user.email" ng-maxlength="20" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
+                        <input type="email" placeholder="Email user" ng-required="true" ng-model="HomeCtrl.user.email" ng-maxlength="25" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
                         <h3>Phone: </h3>
                         <input type="number" placeholder="Phone user" ng-required="true" ng-model="HomeCtrl.user.phone" ng-minlength="9" ng-maxlength="9" ng-model-options="{updateOn: 'blur', allowInvalid : '$inherit'}">
                         <h3>Photo: </h3>
@@ -49,61 +49,63 @@
                     </form>
                 </div>
                 <!-- Container Gifs -->
-                <div class="gifs__container" ng-show="HomeCtrl.showView == 1">
-                    <div class="user__favourite__container">
-                        <div class="user__favourite" ng-repeat="giphy in HomeCtrl.user.giphy track by giphy.id">
-                            <img class="user__favourite__photo" ng-click="HomeCtrl.deleteGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
+                <div class="view__container__favourite" ng-show="HomeCtrl.showView == 1">
+                    <div class="view__favourite__container">
+                        <div class="view__favourite" ng-repeat="giphy in HomeCtrl.user.giphy track by giphy.id">
+                            <img class="view__favourite__photo" ng-click="HomeCtrl.deleteTypeFav('Giphy',giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
                         </div>
                     </div>
                     <div class="user__search">
                         <form name="HomeCtrl.formSG">
                             <input name="HomeCtrl.SG" type="text" placeholder="Search Giphy" ng-model="HomeCtrl.search_giphy.text" ng-required="true" ng-minlength="1">
                         </form>
-                        <p class="user__search__type">
+                        <div class="user__search__type">
                             <a class="user__search__type__recent" ng-class="{blackStyle:(HomeCtrl.typeGiphy=='search')}" ng-click="HomeCtrl.typeGiphy='search'">Recents</a>
                             <a class="user__search__type__trending" ng-class="{blackStyle:(HomeCtrl.typeGiphy=='trending')}" ng-click="HomeCtrl.typeGiphy='trending'">Trending</a>
-                        </p>
+                        </div>
                         <button ng-disabled="HomeCtrl.formSG.$invalid" ng-click="HomeCtrl.getGiphies(false)">Search Giphy</button>
                     </div>
-                    <div class="user__show__container--general">
+                    <div class="view__container--general">
                         <div class="type__change--left" ng-click="HomeCtrl.getGiphies(true, false)"><img src="/img/flecha-left.png"></div>
-                        <div class="user__show__container">
-                            <div class="user__show__views" ng-repeat="giphy in HomeCtrl.giphyList track by giphy.id">
-                                <img class="user__show__views__photo__gifs" ng-class="{borderBlackStyle:HomeCtrl.checkGiphyUser(giphy.id)}" ng-click="HomeCtrl.addGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
+                        <div class="view__type__container">
+                            <div class="view__type__gifs" ng-repeat="giphy in HomeCtrl.giphyList track by giphy.id">
+                                <img class="views__photo__gifs" ng-class="{borderBlackStyle:HomeCtrl.checkTypeUser('Giphy',giphy.id)}" ng-click="HomeCtrl.addTypeFav('Giphy',giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
                             </div>
                         </div>
                         <div class="type__change--right" ng-click="HomeCtrl.getGiphies(true, true)"><img src="../img/flecha-right.png"></div>
                     </div>
                 </div>
                 <!-- Container Marvel -->
-                <div class="user__container" ng-show="HomeCtrl.showView == 2" ng-hide="HomeCtrl.showView != 2">
-                    <div class="user__favourite__container">
-                        <div class="user__favourite" ng-repeat="marvel in HomeCtrl.user.marvel track by marvel.id">
-                            <img class="user__favourite__photo" ng-click="HomeCtrl.deleteMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
+                <div class="view__container__favourite" ng-show="HomeCtrl.showView == 2" ng-hide="HomeCtrl.showView != 2">
+                    <div class="view__favourite__container">
+                        <div class="view__favourite" ng-repeat="marvel in HomeCtrl.user.marvel track by marvel.id">
+                            <img class="view__favourite__photo" ng-click="HomeCtrl.deleteTypeFav('Marvel',marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
                         </div>
                     </div>
                     <div class="user__search">
                         <form name="HomeCtrl.formSM">
                             <input type="text" placeholder="Search Marvel" ng-model="HomeCtrl.search_marvel.text" ng-required="true" ng-minlength="1">
                             <select class="user__search__select" ng-model="HomeCtrl.typeMarvel" ng-required="true">
-                                <option disabled selected value>--Please select--</option>
+                                <option disabled selected value> Please Select Marvel Type </option>
                                 <option ng-repeat="marvel in HomeCtrl.marvelListSelect track by $index">{{marvel}}</option>
                             </select>
                         </form>
                         <button ng-disabled="HomeCtrl.formSM.$invalid" ng-click="HomeCtrl.getMarvel(false)">Search Marvel</button>
                     </div>
-                    <div class="user__show__container__marvel">
+                    <div class="view__container--general">
                         <div class="type__change--left" ng-click="HomeCtrl.getMarvel(true, false)"><img src="/img/flecha-left.png"></div>
-                        <div class="user__show__views__marvel" ng-repeat="marvel in HomeCtrl.marvelList track by marvel.id">
-                            <img class="user__show__views__photo__marvel" ng-class="{borderBlackStyle:HomeCtrl.checkMarvelUser(marvel.id)}" ng-click="HomeCtrl.addMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
+                        <div class="view__type__container">
+                            <div class="view__type__marvel" ng-repeat="marvel in HomeCtrl.marvelList track by marvel.id">
+                                <img class="views__photo__marvel" ng-class="{borderBlackStyle:HomeCtrl.checkTypeUser('Marvel',marvel.id)}" ng-click="HomeCtrl.addTypeFav('Marvel',marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
+                            </div>
                         </div>
                         <div class="type__change--right" ng-click="HomeCtrl.getMarvel(true, true)"><img src="../img/flecha-right.png"></div>
                     </div>
                 </div>
                 <!-- Container button Create and Modify -->
                 <div class="button__Create__Modify__User">
-                        <button ng-if="!HomeCtrl.edit" ng-disabled="HomeCtrl.formUser.$invalid" ng-class="{borderGreenStyle:HomeCtrl.formUser.$valid}" ng-click="HomeCtrl.addNewUser()">Create</button>
-                        <button ng-if="HomeCtrl.edit" ng-disabled="HomeCtrl.formUser.$invalid" ng-class="{borderGreenStyle:HomeCtrl.formUser.$valid}" ng-click="HomeCtrl.modifyUser()">Modify</button>
+                    <button ng-if="!HomeCtrl.edit" ng-disabled="HomeCtrl.formUser.$invalid" ng-class="{borderGreenStyle:HomeCtrl.formUser.$valid}" ng-click="HomeCtrl.addNewUser()">Create</button>
+                    <button ng-if="HomeCtrl.edit" ng-disabled="HomeCtrl.formUser.$invalid" ng-class="{borderGreenStyle:HomeCtrl.formUser.$valid}" ng-click="HomeCtrl.modifyUser()">Modify</button>
                 </div>
             </div>
         </div>
