@@ -17,7 +17,7 @@
     justify-content: space-between;
     box-sizing: content-box;
     border: 4px solid white;
-    background-color: rgba(209, 144, 14, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 0 0 4px 4px rgba(0,0,0,0.3);
 }
 .user__photo__1{
@@ -94,15 +94,14 @@
 }
 /*_____NAV BAR____*/
 .nav__bar{
-    width: 95%;
+    width: 100%;
     height: 40px;
     display: flex;
-    margin-top: 10px;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    border: 0.5px ridge rgba(165, 42, 42, 0.5);
-    background-color: rgba(247, 169, 81, 0.555);
+    border-bottom: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 .nav__bar ul{
     display: inline-flex;
@@ -114,34 +113,37 @@
 }
 .nav__bar ul li{
     padding: 30px;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 15px;
 }
 /*_____Container General Giphy and Marvel______*/
 .container__R{
-    height: 800px;
-    border: 1px solid rgba(128, 255, 0, 0.4);
-    background-color: rgba(156, 205, 50, 0.4);
+    height: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
 }
-.newUser{
-    margin-left: 30px;
-    width: 90%;
+.user__container{
+    width: 100%;
     height: 600px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.4);
 }
-.newUser form input{
+.user__container form input{
     width: 300px;
     height: 25px;
     box-sizing: content-box;
-    border: 1px ridge rgba(165, 42, 42, 0.5);
-    background-color: rgba(247, 169, 81, 0.555);
-    box-shadow: 1px 1px 1px 1px rgba(247, 169, 81, 0.555);
-    border-radius: 7px 7px 7px 7px;
+    background-color: white;
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-radius: 5px 5px 5px 5px;
 }
-.newUser form input::-webkit-input-placeholder{
+.user__container form input::-webkit-input-placeholder{
     color: black;
     padding-left: 5px;
 }
@@ -152,16 +154,16 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 .button__Create__Modify__User button{
-    border: 1px ridge rgba(165, 42, 42, 0.5);
-    background-color: rgba(247, 169, 81, 0.555);
-    box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(165, 42, 42, 0.5);
     height: 40px;
     width: 100px;
+    color: white;
+    background-color: transparent;
 }
 /*_____Container Giphy and Marvel_____*/
-.user__container{
+.gifs__container{
     width: 100%;
     height: 650px;
     display: flex;
@@ -311,11 +313,15 @@
     border-image: 1px solid bisque;
 }
 /*_______Ng-Style_______*/
-input.ng-valid.ng-touched{
-    border-right: 5px solid greenyellow;
+/*_Error_Valid_*/
+input.ng-touched.ng-dirty.ng-invalid.ng-not-empty{
+    border: 2px solid red;
 }
-input.ng-invalid.ng-dirty.ng-touched{
-    border-right: 5px solid red;
+input.ng-touched.ng-pristine.ng-valid-required.ng-invalid.ng-not-empty{
+    border: 2px solid red;
+}
+input.ng-untouched.ng-pristine.ng-valid-required.ng-invalid.ng-not-empty{
+    border: 2px solid red;
 }
 .blackStyle{
     font-weight: bold;
@@ -323,4 +329,7 @@ input.ng-invalid.ng-dirty.ng-touched{
 }
 .borderBlackStyle{
     border: 1px solid black;
+}
+.borderGreenStyle{
+    border: 1px solid rgb(70, 209, 15);
 }

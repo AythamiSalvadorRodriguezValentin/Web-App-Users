@@ -18,7 +18,6 @@
         vm.editUser = editUser;
         vm.modifyUser = modifyUser;
         vm.removeUser = removeUser;
-        vm.checkValid = checkValid;
         ////////////////////// NAV PERFIL USER //////////////////////
         vm.go = go;
         ///////////////////// VAR SCOPE USER ///////////////////////
@@ -59,6 +58,7 @@
         function addNewUser(){
             vm.user = ULP.addUser(vm.user);
             vm.usersList.push(vm.user);
+            vm.formUser.$setPristine();
             vm.user = {};
         };
         function editUser(id){
@@ -72,6 +72,7 @@
                 const u = vm.usersList[i];
                 if (u.id == vm.user.id) vm.usersList[i] = vm.user;
             }
+            vm.formUser.$setPristine();
             vm.user = {};
         };
         function removeUser(user){
@@ -79,14 +80,10 @@
             if (userName == user.name) {
                 ULP.deleteUser(user.id);
                 for (let i = 0; i < vm.usersList.length; i++) {
-                    if (vm.usersList.includes(user)) vm.usersList.splice(i,1);
+                    if (vm.usersList[i].id == user.id) {vm.usersList.splice(i,1); break;}
                 }
             }
         };
-        function checkValid(){
-            if(vm.formUser.$valid) return true;
-            else return false;
-        }
         ////////////////////// NAV PERFIL USER //////////////////////
         function go(id){
             let url = "/user/" + id;
