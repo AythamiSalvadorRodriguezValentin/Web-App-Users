@@ -19,6 +19,7 @@
         vm.editUser = editUser;
         vm.modifyUser = modifyUser;
         vm.removeUser = removeUser;
+        vm.checkValid = checkValid;
         ////////////////////// NAV PERFIL USER /////////////////////
         vm.go = go;
         ///////////////////////// VAR TYPE ////////////////////////
@@ -82,6 +83,12 @@
                 }
             }
         };
+        function checkValid(){
+            if (vm.formUser.$valid 
+                && vm.user.giphy.length > 0
+                && vm.user.marvel.length > 0) return true;
+            else return false;
+        }
         ////////////////////// NAV PERFIL USER /////////////////////
         function go(id){
             let url = "/user/" + id;
@@ -148,7 +155,6 @@
             }
         }
         function checkTypeUser(type, ident){
-            if(!vm.edit) return;
             let arrayType = [];
             if(type == 'Giphy') arrayType = vm.user.giphy;
             else if(type == 'Marvel') arrayType = vm.user.marvel;

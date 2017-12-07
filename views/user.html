@@ -16,20 +16,26 @@
         </div>
         <div class="col-md-4 col-lg-4">
             <div class="agend__user__favourite__container">
-                <h3 class="agend__user__favourite--title"><b>Favourite Gifs</b></h3>
+                <h3 class="agend__user__favourite--title">
+                    <b>Favourite Gifs</b>
+                    <img ng-hide="userCtrl.user.giphy.length == 0" class="agend__user__favourite--remove agend__user__favourite--position--gifs" src="/img/papelera.png">
+                </h3>
                 <div class="agend__user__favourite__parent">
                     <div class="agend__user__favourite" ng-repeat="giphy in userCtrl.user.giphy track by giphy.id">
-                        <img class="agend__user__favourite__photo" ng-click="userCtrl.deleteGifsFav(giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
+                        <img class="agend__user__favourite__photo" ng-click="userCtrl.deleteTypeFav('Giphy',giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-4 col-lg-4">
             <div class="agend__user__favourite__container">
-                <h3 class="agend__user__favourite--title"><b>Favourite Comics</b></h3>
+                <h3 class="agend__user__favourite--title">
+                    <b>Favourite Comics</b>
+                    <img ng-hide="userCtrl.user.marvel.length == 0" class="agend__user__favourite--remove agend__user__favourite--position--marvel" src="/img/papelera.png">
+                </h3>
                 <div class="agend__user__favourite__parent">
                     <div class="agend__user__favourite" ng-repeat="marvel in userCtrl.user.marvel track by marvel.id">
-                        <img class="agend__user__favourite__photo" ng-click="HomeCtrl.deleteMarvelFav(marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
+                        <img class="agend__user__favourite__photo" ng-click="userCtrl.deleteTypeFav('Marvel',marvel)" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
                     </div>
                 </div>
             </div>

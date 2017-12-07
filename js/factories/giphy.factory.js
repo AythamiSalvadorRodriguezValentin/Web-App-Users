@@ -27,7 +27,11 @@
                     .then(successFuction)
                     .catch(errorFuction);
         }
-        function getGifsType(object) {
+        /**
+         * 
+         * @param {*} object { type: }
+         */
+        function getGifsType(object, options) {
             let url = 'https://api.giphy.com/v1/gifs/' + object.type + '?&q=';
             let data = object.text;
             let apikey = '&api_key=7jnRALOECevpKEne61XACCAhBWBgz348';

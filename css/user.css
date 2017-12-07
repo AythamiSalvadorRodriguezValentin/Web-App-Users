@@ -97,6 +97,19 @@
     border-bottom: 2px solid white;
     background-color: rgba(0, 0, 0, 0.5);
 }
+.agend__user__favourite--remove{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+.agend__user__favourite--position--gifs{
+    position: relative;
+    left: 150px;
+}
+.agend__user__favourite--position--marvel{
+    position: relative;
+    left: 130px;
+}
 .agend__user__favourite__parent{
     width: 100%;
     max-height: 800px;

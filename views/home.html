@@ -104,8 +104,8 @@
                 </div>
                 <!-- Container button Create and Modify -->
                 <div class="button__User">
-                    <button ng-if="!HomeCtrl.edit && HomeCtrl.showView == 'User'" ng-disabled="HomeCtrl.formUser.$invalid" ng-class="{borderGreenStyle:HomeCtrl.formUser.$valid}" ng-click="HomeCtrl.addNewUser()">Create</button>
-                    <button ng-if="HomeCtrl.edit" ng-disabled="HomeCtrl.formUser.$invalid" ng-class="{borderGreenStyle:HomeCtrl.formUser.$valid}" ng-click="HomeCtrl.modifyUser()">Modify</button>
+                    <button ng-if="!HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" ng-class="{borderGreenStyle:HomeCtrl.checkValid()}" ng-click="HomeCtrl.addNewUser()">Create</button>
+                    <button ng-if="HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" ng-class="{borderGreenStyle:HomeCtrl.checkValid()}" ng-click="HomeCtrl.modifyUser()">Modify</button>
                 </div>
             </div>
         </div>
