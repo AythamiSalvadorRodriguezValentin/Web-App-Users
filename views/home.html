@@ -57,13 +57,13 @@
                     </div>
                     <div class="user__search">
                         <form name="HomeCtrl.formSG">
-                            <input name="HomeCtrl.SG" type="text" placeholder="Search Giphy" ng-model="HomeCtrl.search_giphy.text" ng-required="true" ng-minlength="1">
+                            <input type="text" placeholder="Search Giphy" ng-model="HomeCtrl.search_giphy.text" ng-required="true" ng-minlength="1">
                         </form>
                         <div class="user__search__type">
                             <a class="user__search__type__recent" ng-class="{blackStyle:(HomeCtrl.typeGiphy=='search')}" ng-click="HomeCtrl.typeGiphy='search'">Recents</a>
                             <a class="user__search__type__trending" ng-class="{blackStyle:(HomeCtrl.typeGiphy=='trending')}" ng-click="HomeCtrl.typeGiphy='trending'">Trending</a>
                         </div>
-                        <button ng-disabled="HomeCtrl.formSG.$invalid" ng-click="HomeCtrl.getTypesUser('Giphy',false)">Search Giphy</button>
+                        <button ng-disabled="HomeCtrl.formSG.$invalid" ng-click="HomeCtrl.getTypesUser('Giphy',false)" ng-class="{borderGreenStyle:HomeCtrl.formSG.$valid}">Search Giphy</button>
                     </div>
                     <div class="view__container--general">
                         <div ng-hide="HomeCtrl.ArrowLeft" class="type__change--left" ng-click="HomeCtrl.getTypesUser('Giphy',true, false)"><img src="/img/flecha-left.png"></div>
@@ -90,7 +90,7 @@
                                 <option ng-repeat="marvel in HomeCtrl.marvelListSelect track by $index">{{marvel}}</option>
                             </select>
                         </form>
-                        <button ng-disabled="HomeCtrl.formSM.$invalid" ng-click="HomeCtrl.getTypesUser('Marvel',false)">Search Marvel</button>
+                        <button ng-disabled="HomeCtrl.formSM.$invalid" ng-click="HomeCtrl.getTypesUser('Marvel',false)" ng-class="{borderGreenStyle:HomeCtrl.formSM.$valid}">Search Marvel</button>
                     </div>
                     <div class="view__container--general">
                         <div ng-hide="HomeCtrl.ArrowLeft" class="type__change--left" ng-click="HomeCtrl.getTypesUser('Marvel',true,false)"><img src="/img/flecha-left.png"></div>
