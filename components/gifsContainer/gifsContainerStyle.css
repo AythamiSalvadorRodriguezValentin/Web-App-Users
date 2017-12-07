@@ -100,3 +100,7 @@
     font-weight: bold;
     color: black;
 }
+.component--slider-gifs{
+    width:100%; 
+    height:65%;
+}

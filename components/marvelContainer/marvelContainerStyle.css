@@ -69,3 +69,7 @@
 .component__border__green__style__marvel{
     border: 1px solid rgb(70, 209, 15);
 }
+.component--slider-marvel{
+    width:100%; 
+    height:65%;
+}
