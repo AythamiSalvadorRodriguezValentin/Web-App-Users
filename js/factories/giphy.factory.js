@@ -29,10 +29,10 @@
         }
         /**
          * 
-         * @param {*} object {type: permite pedir los gifs 'recents' o 'trendings', text: nombre del gifs que deseas buscar, 
-         * offset: 'true' o 'false' se deseas manejar el offset o no, direction: 'true' o 'false' si quieres buscar otra 
+         * @param {*} object 'object': {type: permite pedir los gifs 'recents' o 'trendings'; text: nombre del gifs que deseas buscar; 
+         * offset: 'si' o 'no' si deseas manejar el offset o no; direction: 'right' o 'left' si quieres buscar otra 
          * tanda de gifs o volver a los gifs anteriores}
-         * @param {*} options number: numero de gifs que deseas pedir
+         * @param {*} options 'Number': numero de gifs que deseas pedir.
          */
         function getGifsType(object, options) {
             if(typeof options === 'number' && options >= 1) GSP.numberGifs = options;
@@ -41,8 +41,8 @@
             let apikey = '&api_key=7jnRALOECevpKEne61XACCAhBWBgz348';
             let limit = "&limit=" + GSP.numberGifs;
             let offset = "&offset=";
-            if(object.offset){
-                if(object.direction) GSP.offsetGiphy += GSP.numberGifs;
+            if(object.offset == 'si'){
+                if(object.direction == 'right') GSP.offsetGiphy += GSP.numberGifs;
                 else {
                     if(GSP.offsetGiphy > GSP.numberGifs) GSP.offsetGiphy -= GSP.numberGifs;
                     else GSP.offsetGiphy = 0;

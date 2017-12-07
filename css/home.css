@@ -269,63 +269,6 @@
     color: rgb(13, 107, 184);
     text-decoration: none;
 }
-.view__container--general{
-    width: 100%;
-    height: 500px;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    background-color: white;
-    border-radius: 5px 5px 5px 5px;
-    justify-content: center;
-}
-.type__change--left{
-    width: 10%;
-    display: flex;
-    flex-flow: row;
-    justify-content: flex-start;
-}
-.type__change--right{
-    width: 10%;
-    display: flex;
-    flex-flow: row;
-    justify-content: flex-end;
-}
-.view__type__container{
-    width: 80%;
-    height: 80%;
-    display: flex;
-    overflow: scroll;
-    flex-flow: row wrap;
-    justify-content: center;
-    border-radius: 5px 5px 5px 5px;
-}
-.view__type__gifs{
-    width: 200px;
-    height: 200px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-}
-.view__type__marvel{
-    width: 200px;
-    height: 400px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-}
-.views__photo__gifs{
-    width: 175px;
-    height: 175px;
-    object-fit: contain;
-}
-.views__photo__marvel{
-    width: 175px;
-    height: 375px;
-    object-fit: contain;
-}
 /*_______Ng-Style_______*/
 /*_Error_Valid_*/
 input.ng-touched.ng-dirty.ng-invalid.ng-not-empty{
@@ -340,10 +283,6 @@ input.ng-untouched.ng-pristine.ng-valid-required.ng-invalid.ng-not-empty{
 .blackStyle{
     font-weight: bold;
     color: black;
-}
-.borderBlackStyle{
-    border: 1px solid black;
-    padding: 5px;
 }
 .borderGreenStyle{
     border: 1px solid rgb(70, 209, 15);

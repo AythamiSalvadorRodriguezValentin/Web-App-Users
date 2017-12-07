@@ -13,6 +13,7 @@
         vm.user = {};
         vm.edit = false;
         vm.showView = 'User';
+        vm.formUser = {};
         //////////////////////// FUCTION USER //////////////////////
         vm.resetVar = resetVar;
         vm.addNewUser = addNewUser;
@@ -49,8 +50,8 @@
         //////////////////////// FUCTION USER //////////////////////
         function resetVar(){
             vm.user = {name:'', email:'', phone:'', photo:'', giphy:[], marvel:[]};
-            vm.search_giphy = {text:'', type:'', offset:false, direction:false};
-            vm.search_marvel = {text:'', type:'', offset:false, direction:false , click:true}
+            vm.search_giphy = {text:'', type:'', offset:'', direction:''};
+            vm.search_marvel = {text:'', type:'', offset:'', direction:'' , click:true}
         };
         function addNewUser(){
             vm.user = ULP.addUser(vm.user);
@@ -107,15 +108,15 @@
                 vm.search_marvel.offset = offset;
                 vm.search_marvel.direction = direction;
                 vm.search_marvel.type = vm.typeMarvel;
-                MSP.getMarvelFct(offset,vm.search_marvel,3).then(response => vm.marvelList = response).catch(errorFuction);
+                MSP.getMarvelFct('on',vm.search_marvel,3).then(response => vm.marvelList = response).catch(errorFuction);
             }
-            if (offset){
-                if(direction) vm.direction++; 
-                else vm.direction--;
-                if(vm.direction > 0) vm.ArrowLeft = false;
+            if (offset == 'si'){
+                if(direction == 'right') vm.directionArrow++; 
+                else vm.directionArrow--;
+                if(vm.directionArrow > 0) vm.ArrowLeft = false;
                 else vm.ArrowLeft = true;
             } else{
-                vm.direction = 0;
+                vm.directionArrow = 0;
                 vm.ArrowLeft = true;
             }
         };

@@ -23,30 +23,29 @@
         ////////////////////////////////////////////////////////////////////////////////
         /**
          * 
-         * @param {*} click si es la primera vez, el offset debe estar en 'false' y el click en 'false'; en caso contrario, el click debe estar 
-         * en 'true' para saber que deseas utilizar el offset.
-         * @param {*} object {text: marvel que deseas buscar, type: desear buscar un 'comics' 'characters' 'series' o 'events', offset: debe 
-         * estar a 'false' si es la primera búsqueda y 'true' si vas a buscar más marvel, direction: 'true' para buscar más marvel o 'false' para 
+         * @param {*} click 'String': el click siempre tiene que estar en 'on'. Si esta en 'off' solo realiza una búsqueda.
+         * @param {*} object 'object': {text: marvel que deseas buscar; type: desear buscar un 'comics' 'characters' 'series' o 'events'; offset: debe 
+         * estar a 'no' si es la primera búsqueda y en 'si' para buscar más marvel; direction: 'right' para buscar más marvel o 'left' para 
          * regresar a los anteriores}
-         * @param {*} options numero de marvel que deseas buscar.
+         * @param {*} options 'Number': numero de marvel que deseas buscar.
          */
         function getMarvelFct(click,object,options) {
             if(typeof options === 'number' && options >= 1) MSP.numberMarvel = options;
-            if(click){
-                if(object.direction) MSP.peticiones += MSP.numberMarvel;
+            if(click === 'on'){
+                if(object.direction === 'right') MSP.peticiones += MSP.numberMarvel;
                 else{
                     if (MSP.peticiones >= MSP.numberMarvel) MSP.peticiones -= MSP.numberMarvel;
                     else MSP.peticiones = MSP.numberMarvel;
                 }
             }
-            if(MSP.object.offset){
-                if(MSP.object.direction) MSP.offsetMarvel += MSP.numberMarvel;
+            if(MSP.object.offset === 'si'){
+                if(MSP.object.direction === 'right') MSP.offsetMarvel += MSP.numberMarvel;
                 else {
                     if(MSP.offsetMarvel > MSP.numberMarvel) MSP.offsetMarvel -= MSP.numberMarvel;
                     else MSP.offsetMarvel = 0;
                 }
             } else{
-                if(!click) MSP.peticiones = MSP.numberMarvel;
+                if(click === 'off') MSP.peticiones = MSP.numberMarvel;
                 MSP.offsetMarvel = 0;
                 MSP.arrayMarvel = [];
                 MSP.object = object;
@@ -97,16 +96,15 @@
                     return returnArrayMarvel;
                 }
                 else{
-                    if(MSP.object.offset){
-                        if(!MSP.object.direction){
-                            if(MSP.offsetMarvel < MSP.numberMarvel) MSP.object.direction = true;
+                    if(MSP.object.offset === 'si'){
+                        if(MSP.object.direction === 'left'){
+                            if(MSP.offsetMarvel < MSP.numberMarvel) MSP.object.direction = 'right';
                         }
                     } else {
-                        MSP.object.offset = true;
-                        MSP.object.direction = true;
+                        MSP.object.offset = 'si';
+                        MSP.object.direction = 'right';
                     }
-                    MSP.object.click = false;
-                    return getMarvelFct(false,MSP.object);
+                    return getMarvelFct('off',MSP.object);
                 }
             }
         };
