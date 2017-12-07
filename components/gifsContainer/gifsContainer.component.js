@@ -21,6 +21,7 @@
     function GifsContainerController(GSP,ULP) {
         var $ctrl = this;
         ///////////////////////// VAR TYPE ////////////////////////
+        $ctrl.user = {};
         $ctrl.giphyList = [];
         $ctrl.search_giphy = {};
         $ctrl.typeGiphy = 'search';
@@ -28,10 +29,10 @@
         $ctrl.ArrowLeft = true;
         $ctrl.ArrowRight = true;
         //////////////////////// USER TYPE FAV /////////////////////
-        $ctrl.getGifsUser = getGifsUser;
-        $ctrl.addGifsFav = addGifsFav;
-        $ctrl.deleteGifsFav = deleteGifsFav;
-        $ctrl.checkGifsUser = checkGifsUser;
+        $ctrl.getGifs = getGifs;
+        $ctrl.addGifFav = addGifFav;
+        $ctrl.deleteGifFav = deleteGifFav;
+        $ctrl.checkGif = checkGif;
         ////////////////////////////////////////////////////////////
         $ctrl.$onInit = function() {
             $ctrl.user = {name:'', email:'', phone:'', photo:'', giphy:[], marvel:[]};
@@ -40,7 +41,7 @@
         $ctrl.$onChanges = function(changesObj) { };
         $ctrl.$onDestroy = function() { };
         //////////////////////// USER TYPE FAV /////////////////////
-        function getGifsUser(offset, direction){
+        function getGifs(offset, direction){
             $ctrl.ArrowRight = false;
             $ctrl.search_giphy.offset = offset;
             $ctrl.search_giphy.direction = direction;
@@ -60,7 +61,7 @@
         function errorFuction(response){
             console.error(response);
         };
-        function addGifsFav(data){
+        function addGifFav(data){
             let isIn = false;
             for (let i = 0; i < $ctrl.user.giphy.length; i++) {
                 if ($ctrl.user.giphy[i].id == data.id){
@@ -73,7 +74,7 @@
                 ULP.updateUser($ctrl.user);
             }
         }
-        function deleteGifsFav(data){
+        function deleteGifFav(data){
             for (let i = 0; i < $ctrl.user.giphy.length; i++) {
                 if ($ctrl.user.giphy[i].id == data.id){
                     $ctrl.user.giphy.splice(i,1);
@@ -82,7 +83,7 @@
                 }
             }
         }
-        function checkGifsUser(ident){
+        function checkGif(ident){
             for (let i = 0; i < $ctrl.user.giphy.length; i++) {
                 if($ctrl.user.giphy[i].id == ident) return true;
             }

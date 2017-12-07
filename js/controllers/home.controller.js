@@ -33,8 +33,6 @@
         //////////////////////// FUCTION USER //////////////////////
         function resetVar(){
             vm.user = {name:'', email:'', phone:'', photo:'', giphy:[], marvel:[]};
-            vm.search_giphy = {text:'', type:'', offset:'', direction:''};
-            vm.search_marvel = {text:'', type:'', offset:'', direction:'' , click:true}
         };
         function addNewUser(){
             vm.user = ULP.addUser(vm.user);

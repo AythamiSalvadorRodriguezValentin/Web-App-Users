@@ -4,7 +4,7 @@
     <div 
         ng-hide="$ctrl.arrowLeft" 
         class="component__type__change__gifs--left" 
-        ng-click="$ctrl.getGifs({type:'Giphy',offset:'si', direction:'left'})">
+        ng-click="$ctrl.getGifs({offset:'si', direction:'left'})">
         <img src="/img/flecha-left.png">
     </div>
     <div class="component__view__type__gifs--container">
@@ -12,8 +12,8 @@
             class="component__view__type__gifs" 
             ng-repeat="gif in $ctrl.gifs track by gif.id">
             <img class="component__views__photo__gifs" 
-                ng-class="{component__border__black__gifs__style:$ctrl.checkGif({type:'Giphy',id:gif.id})}" 
-                ng-click="$ctrl.addGifFav({type:'Giphy',data:gif})" 
+                ng-class="{component__border__black__gifs__style:$ctrl.checkGif({id:gif.id})}" 
+                ng-click="$ctrl.addGifFav({data:gif})" 
                 ng-src="{{::gif.photo}}" 
                 onerror="this.src='/img/no_image.png'">
         </div>
@@ -21,7 +21,7 @@
     <div 
         ng-hide="$ctrl.arrowRight" 
         class="component__type__change__gifs--right" 
-        ng-click="$ctrl.getGifs({type:'Giphy', offset:'si', direction:'right'})">
+        ng-click="$ctrl.getGifs({offset:'si', direction:'right'})">
         <img src="../img/flecha-right.png">
     </div>
 </div>

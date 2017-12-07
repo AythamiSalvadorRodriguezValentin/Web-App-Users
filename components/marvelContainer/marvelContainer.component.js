@@ -36,7 +36,7 @@
         ////////////////////////////////////////////////////////////
         $ctrl.$onInit = function() {
             $ctrl.marvelListSelect = MSP.getTypes();
-            $ctrl.user = {name:'', email:'', phone:'', photo:'', marvel:[], marvel:[]};
+            $ctrl.user = {name:'', email:'', phone:'', photo:'', giphy:[], marvel:[]};
             $ctrl.search_marvel = {text:'', type:'', offset:'', direction:'' , click:true}
         };
         $ctrl.$onChanges = function(changesObj) { };
