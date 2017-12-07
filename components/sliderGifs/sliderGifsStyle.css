@@ -30,16 +30,16 @@
     border-radius: 5px 5px 5px 5px;
 }
 .component__view__type__gifs{
-    width: 200px;
-    height: 200px;
+    width: 175px;
+    height: 175px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
 }
 .component__views__photo__gifs{
-    width: 175px;
-    height: 175px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
 }
 .component__border__black__gifs__style{
