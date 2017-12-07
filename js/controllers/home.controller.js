@@ -50,7 +50,7 @@
         function resetVar(){
             vm.user = {name:'', email:'', phone:'', photo:'', giphy:[], marvel:[]};
             vm.search_giphy = {text:'', type:'', offset:false, direction:false};
-            vm.search_marvel = {text:'', type:'', offset:false, direction:false}
+            vm.search_marvel = {text:'', type:'', offset:false, direction:false , click:true}
         };
         function addNewUser(){
             vm.user = ULP.addUser(vm.user);
@@ -101,13 +101,13 @@
                 vm.search_giphy.offset = offset;
                 vm.search_giphy.direction = direction;
                 vm.search_giphy.type = vm.typeGiphy;
-                if(vm.typeGiphy == 'search') GSP.getGifsType(vm.search_giphy).then(response => vm.giphyList = response).catch(errorFuction);
-                else if(vm.typeGiphy == 'trending') GSP.getGifsType(vm.search_giphy).then(response => vm.giphyList = response).catch(errorFuction);
+                if(vm.typeGiphy == 'search') GSP.getGifsType(vm.search_giphy,8).then(response => vm.giphyList = response).catch(errorFuction);
+                else if(vm.typeGiphy == 'trending') GSP.getGifsType(vm.search_giphy,8).then(response => vm.giphyList = response).catch(errorFuction);
             } else if (type == 'Marvel'){
                 vm.search_marvel.offset = offset;
                 vm.search_marvel.direction = direction;
                 vm.search_marvel.type = vm.typeMarvel;
-                MSP.getMarvelFct(vm.search_marvel).then(response => vm.marvelList = response).catch(errorFuction);
+                MSP.getMarvelFct(offset,vm.search_marvel,3).then(response => vm.marvelList = response).catch(errorFuction);
             }
             if (offset){
                 if(direction) vm.direction++; 
