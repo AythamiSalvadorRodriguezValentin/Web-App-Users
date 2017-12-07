@@ -71,7 +71,6 @@
                         returnArrayMarvel.push(MSP.arrayMarvel[i]);
                     }
                 }
-                console.log(returnArrayMarvel);
                 return returnArrayMarvel;
             } else{
                 for (let i = 0; i < marvel.length; i++) {
@@ -95,7 +94,6 @@
                             returnArrayMarvel.push(MSP.arrayMarvel[i]);
                         }
                     }
-                    console.log(returnArrayMarvel);
                     return returnArrayMarvel;
                 }
                 else{
