@@ -1,16 +1,16 @@
 <link rel="stylesheet" href="/components/sliderGifs/sliderGifsStyle.css">
 
-<div class="view__container__Gifs--general">
-    <div ng-hide="$ctrl.arrowLeft" class="type__change__Gifs--left" ng-click="$ctrl.getGifs({type:'Giphy',offset:'si', direction:'left'})">
+<div class="component__view__container__gifs--general">
+    <div ng-hide="$ctrl.arrowLeft" class="component__type__change__gifs--left" ng-click="$ctrl.getGifs({type:'Giphy',offset:'si', direction:'left'})">
         <img src="/img/flecha-left.png">
     </div>
-    <div class="view__type__Gifs--container">
-        <div class="view__type__Gifs" ng-repeat="gif in $ctrl.gifs track by gif.id">
-            <img class="views__photo__Gifs" ng-class="{borderBlackGifsStyle:$ctrl.checkGif({type:'Giphy',id:gif.id})}" 
-                 ng-click="$ctrl.addGifFav({type:'Giphy',data:gif})" ng-src="{{gif.photo}}" onerror="this.src='/img/no_image.png'">
+    <div class="component__view__type__gifs--container">
+        <div class="component__view__type__gifs" ng-repeat="gif in $ctrl.gifs track by gif.id">
+            <img class="component__views__photo__gifs" ng-class="{component__border__black__gifs__style:$ctrl.checkGif({type:'Giphy',id:gif.id})}" 
+                 ng-click="$ctrl.addGifFav({type:'Giphy',data:gif})" ng-src="{{::gif.photo}}" onerror="this.src='/img/no_image.png'">
         </div>
     </div>
-    <div ng-hide="$ctrl.arrowRight" class="type__change__Gifs--right" ng-click="$ctrl.getGifs({type:'Giphy', offset:'si', direction:'right'})">
+    <div ng-hide="$ctrl.arrowRight" class="component__type__change__gifs--right" ng-click="$ctrl.getGifs({type:'Giphy', offset:'si', direction:'right'})">
         <img src="../img/flecha-right.png">
     </div>
 </div>

@@ -18,7 +18,7 @@
             <div class="agend__user__favourite__container">
                 <h3 class="agend__user__favourite--title">
                     <b>Favourite Gifs</b>
-                    <img ng-hide="userCtrl.user.giphy.length == 0" class="agend__user__favourite--remove agend__user__favourite--position--gifs" src="/img/papelera.png" ng-click="userCtrl.deleteAllType('Giphy')">
+                    <img ng-hide="userCtrl.user.giphy.length == 0" class="agend__user__favourite--remove" src="/img/papelera.png" ng-click="userCtrl.deleteAllType('Giphy')">
                 </h3>
                 <div class="agend__user__favourite__parent">
                     <div class="agend__user__favourite" ng-repeat="giphy in userCtrl.user.giphy track by giphy.id">
@@ -31,7 +31,7 @@
             <div class="agend__user__favourite__container">
                 <h3 class="agend__user__favourite--title">
                     <b>Favourite Comics</b>
-                    <img ng-hide="userCtrl.user.marvel.length == 0" class="agend__user__favourite--remove agend__user__favourite--position--marvel" src="/img/papelera.png" ng-click="userCtrl.deleteAllType('Marvel')">
+                    <img ng-hide="userCtrl.user.marvel.length == 0" class="agend__user__favourite--remove" src="/img/papelera.png" ng-click="userCtrl.deleteAllType('Marvel')">
                 </h3>
                 <div class="agend__user__favourite__parent">
                     <div class="agend__user__favourite" ng-repeat="marvel in userCtrl.user.marvel track by marvel.id">

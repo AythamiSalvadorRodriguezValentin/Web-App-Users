@@ -1,16 +1,16 @@
 <link rel="stylesheet" href="/components/sliderMarvel/sliderMarvelStyle.css">
 
-<div class="view__container__Marvel--general">
-    <div ng-hide="$ctrl.arrowLeft" class="type__change__Marvel--left" ng-click="$ctrl.getMarvel({type:'Marvel',offset:'si', direction:'left'})">
+<div class="component__view__container__marvel--general">
+    <div ng-hide="$ctrl.arrowLeft" class="component__type__change__marvel--left" ng-click="$ctrl.getMarvel({type:'Marvel',offset:'si', direction:'left'})">
         <img src="/img/flecha-left.png">
     </div>
-    <div class="view__type__Marvel--container">
-        <div class="view__type__Marvel" ng-repeat="marvel in $ctrl.marvels track by marvel.id">
-            <img class="views__photo__Marvel" ng-class="{borderBlackMarvelStyle:$ctrl.checkMarvel({type:'Marvel',id:marvel.id})}" 
-                 ng-click="$ctrl.addMarvelFav({type:'Marvel',data:marvel})" ng-src="{{marvel.photo}}" onerror="this.src='/img/no_image.png'">
+    <div class="component__view__type__marvel--container">
+        <div class="component__view__type__marvel" ng-repeat="marvel in $ctrl.marvels track by marvel.id">
+            <img class="component__views__photo__marvel" ng-class="{component__border__black__marvel__style:$ctrl.checkMarvel({type:'Marvel',id:marvel.id})}" 
+                 ng-click="$ctrl.addMarvelFav({type:'Marvel',data:marvel})" ng-src="{{::marvel.photo}}" onerror="this.src='/img/no_image.png'">
         </div>
     </div>
-    <div ng-hide="$ctrl.arrowRight" class="type__change__Marvel--right" ng-click="$ctrl.getMarvel({type:'Marvel', offset:'si', direction:'right'})">
+    <div ng-hide="$ctrl.arrowRight" class="component__type__change__marvel--right" ng-click="$ctrl.getMarvel({type:'Marvel', offset:'si', direction:'right'})">
         <img src="../img/flecha-right.png">
     </div>
 </div>

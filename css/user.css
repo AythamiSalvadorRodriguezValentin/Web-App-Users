@@ -101,14 +101,7 @@
     width: 30px;
     height: 30px;
     object-fit: contain;
-}
-.agend__user__favourite--position--gifs{
-    position: relative;
-    left: 150px;
-}
-.agend__user__favourite--position--marvel{
-    position: relative;
-    left: 130px;
+    margin-left: 10px;
 }
 .agend__user__favourite__parent{
     width: 100%;
