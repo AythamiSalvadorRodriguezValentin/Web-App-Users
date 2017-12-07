@@ -71,6 +71,7 @@
                         returnArrayMarvel.push(MSP.arrayMarvel[i]);
                     }
                 }
+                console.log(returnArrayMarvel);
                 return returnArrayMarvel;
             } else{
                 for (let i = 0; i < marvel.length; i++) {
@@ -80,12 +81,11 @@
                     object.id = m.id;
                     object.title = m.title;
                     object.photo = m.thumbnail.path + '.' + m.thumbnail.extension;
-                    for (let i = 0; i < MSP.arrayMarvel.length; i++) {
-                        let index = object.photo.indexOf('image_not_available');
+                    let index = object.photo.indexOf('image_not_available');
+                    for (let i = 0; i < MSP.arrayMarvel.length; i++){
                         if (MSP.arrayMarvel[i].id == object.id) isIn = true;
-                        if(index != -1) isIn = true;
                     }
-                    if(!isIn) MSP.arrayMarvel.push(object);
+                    if(!isIn && index == -1) MSP.arrayMarvel.push(object);
                     if(MSP.arrayMarvel.length == MSP.peticiones) break;
                 }
                 if(MSP.arrayMarvel.length == MSP.peticiones){
@@ -95,6 +95,7 @@
                             returnArrayMarvel.push(MSP.arrayMarvel[i]);
                         }
                     }
+                    console.log(returnArrayMarvel);
                     return returnArrayMarvel;
                 }
                 else{
