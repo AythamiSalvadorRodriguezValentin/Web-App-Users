@@ -19,7 +19,7 @@
                 getGifs: '&',
                 checkGif: '&',
                 addGifFav: '&'
-            },
+            }
         });
 
     SliderGifs.$inject = [];

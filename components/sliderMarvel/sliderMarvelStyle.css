@@ -30,16 +30,16 @@
     border-radius: 5px 5px 5px 5px;
 }
 .component__view__type__marvel{
-    max-width: 225px;
-    max-height: 325px;
+    width: 225px;
+    height: 325px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
 }
 .component__views__photo__marvel{
-    max-width: 200px;
-    max-height: 300px;
+    width: 200px;
+    height: 300px;
     object-fit: contain;
 }
 .component__border__black__marvel__style{
