@@ -39,9 +39,10 @@
         }
         function deleteAllType(type){
             let YN = prompt("¿Estas seguro que desea eliminar todos los '" + type + "' ? Introduce 'Y' o 'N'")
-            if (YN == 'Y') {
-                if(type == 'Giphy') vm.user.giphy = [];
-                else if(type == 'Marvel') vm.user.marvel = [];
+            if (YN === 'Y') {
+                if(type === 'gifs') vm.user.giphy = [];
+                else if(type === 'marvel') vm.user.marvel = [];
+                ULP.updateUser(vm.user);
             }
         }
     }

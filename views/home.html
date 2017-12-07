@@ -36,34 +36,17 @@
                     </ul>
                 </div>
                 <!-- Container User Perfil -->
-                <personal-form ng-show="HomeCtrl.showView == 'User'" user="HomeCtrl.user" form="HomeCtrl.formUser"></personal-form>
+                <personal-form 
+                    ng-show="HomeCtrl.showView == 'User'" 
+                    user="HomeCtrl.user" 
+                    form="HomeCtrl.formUser">
+                </personal-form>
                 <!-- Container Gifs -->
-                <div class="view__container__favourite" ng-show="HomeCtrl.showView == 'Giphy'">
-                    <div class="view__favourite__container">
-                        <div class="view__favourite" ng-repeat="giphy in HomeCtrl.user.giphy track by giphy.id">
-                            <img class="view__favourite__photo" ng-click="HomeCtrl.deleteTypeFav('Giphy',giphy)" ng-src="{{giphy.photo}}" onerror="this.src='/img/no_image.png'">
-                        </div>
-                    </div>
-                    <div class="user__search">
-                        <form name="HomeCtrl.formSG">
-                            <input type="text" placeholder="Search Giphy" ng-model="HomeCtrl.search_giphy.text" ng-required="true" ng-minlength="1">
-                        </form>
-                        <div class="user__search__type">
-                            <a class="user__search__type__recent" ng-class="{blackStyle:(HomeCtrl.typeGiphy=='search')}" ng-click="HomeCtrl.typeGiphy='search'">Recents</a>
-                            <a class="user__search__type__trending" ng-class="{blackStyle:(HomeCtrl.typeGiphy=='trending')}" ng-click="HomeCtrl.typeGiphy='trending'">Trending</a>
-                        </div>
-                        <button ng-disabled="HomeCtrl.formSG.$invalid" ng-click="HomeCtrl.getTypesUser('Giphy','no')" ng-class="{borderGreenStyle:HomeCtrl.formSG.$valid}">Search Giphy</button>
-                    </div>
-                    <slider-gifs 
-                        style="width:100%; height:500px"
-                        gifs='HomeCtrl.giphyList' 
-                        arrow-left='HomeCtrl.ArrowLeft'
-                        arrow-right='HomeCtrl.ArrowRight'
-                        get-gifs='HomeCtrl.getTypesUser(type,offset,direction)'
-                        check-gif='HomeCtrl.checkTypeUser(type,id)'
-                        add-gif-fav="HomeCtrl.addTypeFav(type,data)">
-                    </slider-gifs>
-                </div>
+                <gifs-container
+                    style="width:100%; height:800px"
+                    ng-show="HomeCtrl.showView == 'Giphy'"
+                    user='HomeCtrl.user'>
+                </gifs-container>
                 <!-- Container Marvel -->
                 <div class="view__container__favourite" ng-show="HomeCtrl.showView == 'Marvel'" ng-hide="HomeCtrl.showView != 2">
                     <div class="view__favourite__container">

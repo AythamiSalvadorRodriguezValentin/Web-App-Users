@@ -24,9 +24,6 @@
         ////////////////////// NAV PERFIL USER /////////////////////
         vm.go = go;
         ///////////////////////// VAR TYPE ////////////////////////
-        vm.giphyList = [];
-        vm.search_giphy = {};
-        vm.typeGiphy = 'search';
         vm.marvelListSelect = [];
         vm.search_marvel = {};
         vm.marvelList = [];
