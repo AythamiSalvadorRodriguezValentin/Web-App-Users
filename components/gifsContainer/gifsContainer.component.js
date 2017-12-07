@@ -28,20 +28,19 @@
         $ctrl.ArrowLeft = true;
         $ctrl.ArrowRight = true;
         //////////////////////// USER TYPE FAV /////////////////////
-        $ctrl.getTypesUser = getTypesUser;
-        $ctrl.addTypeFav = addTypeFav;
-        $ctrl.deleteTypeFav = deleteTypeFav;
-        $ctrl.checkTypeUser = checkTypeUser;
+        $ctrl.getGifsUser = getGifsUser;
+        $ctrl.addGifsFav = addGifsFav;
+        $ctrl.deleteGifsFav = deleteGifsFav;
+        $ctrl.checkGifsUser = checkGifsUser;
         ////////////////////////////////////////////////////////////
         $ctrl.$onInit = function() {
             $ctrl.user = {name:'', email:'', phone:'', photo:'', giphy:[], marvel:[]};
             $ctrl.search_giphy = {text:'', type:'', offset:'', direction:''};
-            $ctrl.search_marvel = {text:'', type:'', offset:'', direction:'' , click:true}
         };
         $ctrl.$onChanges = function(changesObj) { };
         $ctrl.$onDestroy = function() { };
         //////////////////////// USER TYPE FAV /////////////////////
-        function getTypesUser(offset, direction){
+        function getGifsUser(offset, direction){
             $ctrl.ArrowRight = false;
             $ctrl.search_giphy.offset = offset;
             $ctrl.search_giphy.direction = direction;
@@ -61,7 +60,7 @@
         function errorFuction(response){
             console.error(response);
         };
-        function addTypeFav(data){
+        function addGifsFav(data){
             let isIn = false;
             for (let i = 0; i < $ctrl.user.giphy.length; i++) {
                 if ($ctrl.user.giphy[i].id == data.id){
@@ -74,7 +73,7 @@
                 ULP.updateUser($ctrl.user);
             }
         }
-        function deleteTypeFav(data){
+        function deleteGifsFav(data){
             for (let i = 0; i < $ctrl.user.giphy.length; i++) {
                 if ($ctrl.user.giphy[i].id == data.id){
                     $ctrl.user.giphy.splice(i,1);
@@ -83,7 +82,7 @@
                 }
             }
         }
-        function checkTypeUser(ident){
+        function checkGifsUser(ident){
             for (let i = 0; i < $ctrl.user.giphy.length; i++) {
                 if($ctrl.user.giphy[i].id == ident) return true;
             }

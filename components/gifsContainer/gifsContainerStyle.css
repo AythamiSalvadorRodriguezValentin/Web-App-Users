@@ -1,4 +1,4 @@
-.component__view__container__favourite{
+.component__view__favourite__gifs--general{
     width: 100%;
     height: 100%;
     padding: 20px;
@@ -8,7 +8,7 @@
     border-bottom: 2px solid white;
     background-color: rgba(0, 0, 0, 0.4);
 }
-.component__view__favourite__container{
+.component__view__favourite__gifs--container{
     width: 100%;
     height: 200px;
     display: flex;
@@ -19,19 +19,19 @@
     border-radius: 5px 5px 5px 5px;
     background-color: white;
 }
-.component__view__favourite{
+.component__view__favourite__gifs{
     width: 150px;
     height: 150px;
     margin: 10px;
     display: flex;
     flex-flow: row wrap;
 }
-.component__view__favourite__photo{
+.component__view__favourite__photo__gifs{
     width: 150px;
     height: 150px;
     object-fit: contain;
 }
-.component__user__search{
+.component__user__search__gifs{
     width: 100%;
     margin: 0 auto;
     padding: 10px;
@@ -41,31 +41,25 @@
     align-items: center;
     overflow: scroll;
 }
-.component__user__search button{
+.component__user__search__gifs button{
     width: 170px;
     height: 35px;
     color: white;
     border-radius: 5px 5px 5px 5px;
     background-color: rgba(0, 0, 0, 0.4);
 }
-.component__user__search form input{
+.component__user__search__gifs form input{
     width: 200px;
     height: 35px;
     border-width: 0px;
     background-color: white;
     border-radius: 5px 5px 5px 5px;
 }
-.component__user__search form input::-webkit-input-placeholder{
+.component__user__search__gifs form input::-webkit-input-placeholder{
     color: black;
     padding-left: 5px;
 }
-.component__user__search__select{
-    height: 35px;
-    width: 200px;
-    margin: 20px;
-    background-color: white;
-}
-.component__user__search__type{
+.component__user__search__type__gifs{
     height: 35px;
     width: 200px;
     margin: 20px;
@@ -74,7 +68,7 @@
     align-items: center;
     justify-content: center;
 }
-.component__user__search__type__recent{
+.component__user__search__type__recent__gifs{
     width: 200px;
     color: black;
     padding: 10px;
@@ -82,7 +76,7 @@
     text-decoration: none;
     border-right: 1px solid black;
 }
-.component__user__search__type__trending{
+.component__user__search__type__trending__gifs{
     width: 200px;
     color: black;
     padding: 10px;
@@ -90,18 +84,18 @@
     text-decoration: none;
     border-left: 1px solid black;
 }
-.component__user__search__type__recent:hover{
+.component__user__search__type__recent__gifs:hover{
     color: rgb(13, 107, 184);
     text-decoration: none;
 }
-.component__user__search__type__trending:hover{
+.component__user__search__type__trending__gifs:hover{
     color: rgb(13, 107, 184);
     text-decoration: none;
 }
-.component__border__green__style{
+.component__border__green__style__gifs{
     border: 1px solid rgb(70, 209, 15);
 }
-.component__black__style{
+.component__black__style__gifs{
     font-weight: bold;
     color: black;
 }

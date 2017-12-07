@@ -5,8 +5,8 @@
         .module('Agend_User')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ["$location","UserLocalProvider","GiphyServerProvider","MarvelServerProvider"];
-    function HomeController($location,ULP,GSP,MSP) {
+    HomeController.$inject = ["$location","UserLocalProvider"];
+    function HomeController($location,ULP) {
         let vm = this;
         ////////////////////////// VAR USER ////////////////////////
         vm.usersList = [];
@@ -23,26 +23,12 @@
         vm.checkValid = checkValid;
         ////////////////////// NAV PERFIL USER /////////////////////
         vm.go = go;
-        ///////////////////////// VAR TYPE ////////////////////////
-        vm.marvelListSelect = [];
-        vm.search_marvel = {};
-        vm.marvelList = [];
-        vm.typeMarvel = '';
-        vm.directionArrow = 0;
-        vm.ArrowLeft = true;
-        vm.ArrowRight = true;
-        //////////////////////// USER TYPE FAV /////////////////////
-        vm.getTypesUser = getTypesUser;
-        vm.addTypeFav = addTypeFav;
-        vm.deleteTypeFav = deleteTypeFav;
-        vm.checkTypeUser = checkTypeUser;
         ///////////////////////// INIT /////////////////////////////
         activate();
         ///////////////////////// FUCTION INIT /////////////////////
         function activate() {
             vm.resetVar();
             vm.usersList = ULP.getUsersAll();
-            vm.marvelListSelect = MSP.getTypes();
         };
         //////////////////////// FUCTION USER //////////////////////
         function resetVar(){
@@ -92,76 +78,6 @@
             let url = "/user/" + id;
             $location.path(url);
         };
-        //////////////////////// USER TYPE FAV /////////////////////
-        function getTypesUser(type, offset, direction){
-            vm.ArrowRight = false;
-            if (type == 'Giphy') {
-                vm.search_giphy.offset = offset;
-                vm.search_giphy.direction = direction;
-                vm.search_giphy.type = vm.typeGiphy;
-                if(vm.typeGiphy == 'search') GSP.getGifsType(vm.search_giphy,8).then(response => vm.giphyList = response).catch(errorFuction);
-                else if(vm.typeGiphy == 'trending') GSP.getGifsType(vm.search_giphy,8).then(response => vm.giphyList = response).catch(errorFuction);
-            } else if (type == 'Marvel'){
-                vm.search_marvel.offset = offset;
-                vm.search_marvel.direction = direction;
-                vm.search_marvel.type = vm.typeMarvel;
-                MSP.getMarvelFct('on',vm.search_marvel,3).then(response => vm.marvelList = response).catch(errorFuction);
-            }
-            if (offset == 'si'){
-                if(direction == 'right') vm.directionArrow++; 
-                else vm.directionArrow--;
-                if(vm.directionArrow > 0) vm.ArrowLeft = false;
-                else vm.ArrowLeft = true;
-            } else{
-                vm.directionArrow = 0;
-                vm.ArrowLeft = true;
-            }
-        };
-        function errorFuction(response){
-            console.error(response);
-        };
-        function addTypeFav(type, data){
-            let isIn = false;
-            let arrayType = [];
-            if(type == 'Giphy') arrayType = vm.user.giphy;
-            else if(type == 'Marvel') arrayType = vm.user.marvel;
-            else return;
-            for (let i = 0; i < arrayType.length; i++) {
-                if (arrayType[i].id == data.id){
-                    isIn = true;
-                    break;
-                }
-            }
-            if(!isIn){
-                arrayType.push(data);
-                vm.user[type] = arrayType;
-                ULP.updateUser(vm.user);
-            }
-        }
-        function deleteTypeFav(type, data){
-            let arrayType = [];
-            if(type == 'Giphy') arrayType = vm.user.giphy;
-            else if(type == 'Marvel') arrayType = vm.user.marvel;
-            else return;
-            for (let i = 0; i < arrayType.length; i++) {
-                if (arrayType[i].id == data.id){
-                    arrayType.splice(i,1);
-                    vm.user[type] = arrayType;
-                    ULP.updateUser(vm.user);
-                    break;
-                }
-            }
-        }
-        function checkTypeUser(type, ident){
-            let arrayType = [];
-            if(type == 'Giphy') arrayType = vm.user.giphy;
-            else if(type == 'Marvel') arrayType = vm.user.marvel;
-            else return;
-            for (let i = 0; i < arrayType.length; i++) {
-                if(arrayType[i].id == ident) return true;
-            }
-            return false;
-        }
         ////////////////////////////////////////////////////////////
     }
 })();

@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/components/marvelContainer/marvelContainerStyle.css">
+
+<div class="component__view__favourite__marvel--general">
+    <div class="component__view__favourite__marvel--container">
+        <div 
+            class="component__view__favourite__marvel" 
+            ng-repeat="marvel in $ctrl.user.marvel track by marvel.id">
+            <img 
+                class="component__view__favourite__photo__marvel" 
+                ng-click="$ctrl.deleteMarvelFav(marvel)" 
+                ng-src="{{marvel.photo}}" 
+                onerror="this.src='/img/no_image.png'">
+        </div>
+    </div>
+    <div class="component__user__search__marvel">
+            <form name="$ctrl.formSM">
+                <input 
+                    type="text" 
+                    placeholder="Search Marvel" 
+                    ng-model="$ctrl.search_marvel.text" 
+                    ng-required="true" 
+                    ng-minlength="1">
+                <select 
+                    class="component__user__search__select__marvel" 
+                    ng-model="$ctrl.typeMarvel" 
+                    ng-required="true">
+                    <option disabled selected value> Please Select Marvel Type </option>
+                    <option ng-repeat="marvel in $ctrl.marvelListSelect track by $index">{{marvel}}</option>
+                </select>
+            </form>
+            <button 
+                ng-disabled="$ctrl.formSM.$invalid" 
+                ng-click="$ctrl.getMarvel('no')" 
+                ng-class="{component__border__green__style__marvel:$ctrl.formSM.$valid}">
+                Search Marvel
+            </button>
+        </div>
+    <slider-marvel 
+        style="width:100%; height:500px"
+        marvels='$ctrl.marvelList' 
+        arrow-left='$ctrl.ArrowLeft'
+        arrow-right='$ctrl.ArrowRight'
+        get-marvel='$ctrl.getMarvel(offset,direction)'
+        check-marvel='$ctrl.checkMarvel(id)'
+        add-marvel-fav="$ctrl.addMarvelFav(data)">
+    </slider-marvel>
+</div>

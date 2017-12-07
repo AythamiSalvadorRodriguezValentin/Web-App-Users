@@ -1,18 +1,18 @@
 <link rel="stylesheet" href="/components/gifsContainer/gifsContainerStyle.css">
 
-<div class="component__view__container__favourite">
-    <div class="component__view__favourite__container">
+<div class="component__view__favourite__gifs--general">
+    <div class="component__view__favourite__gifs--container">
         <div 
-            class="component__view__favourite" 
+            class="component__view__favourite__gifs" 
             ng-repeat="giphy in $ctrl.user.giphy track by giphy.id">
             <img 
-                class="component__view__favourite__photo" 
-                ng-click="$ctrl.deleteTypeFav(giphy)" 
+                class="component__view__favourite__photo__gifs" 
+                ng-click="$ctrl.deleteGifsFav(giphy)" 
                 ng-src="{{giphy.photo}}" 
                 onerror="this.src='/img/no_image.png'">
         </div>
     </div>
-    <div class="component__user__search">
+    <div class="component__user__search__gifs">
         <form name="$ctrl.formSG">
             <input 
                 type="text" 
@@ -21,22 +21,22 @@
                 ng-required="true" 
                 ng-minlength="1">
         </form>
-        <div class="component__user__search__type">
-            <a class="component__user__search__type__recent" 
-                ng-class="{component__black__style:($ctrl.typeGiphy=='search')}" 
+        <div class="component__user__search__type__gifs">
+            <a class="component__user__search__type__recent__gifs" 
+                ng-class="{component__black__style__gifs:($ctrl.typeGiphy=='search')}" 
                 ng-click="$ctrl.typeGiphy='search'">
                 Recents
             </a>
-            <a class="component__user__search__type__trending"
-                ng-class="{component__black__style:($ctrl.typeGiphy=='trending')}"
+            <a class="component__user__search__type__trending__gifs"
+                ng-class="{component__black__style__gifs:($ctrl.typeGiphy=='trending')}"
                 ng-click="$ctrl.typeGiphy='trending'">
                 Trending
             </a>
         </div>
         <button 
             ng-disabled="$ctrl.formSG.$invalid"
-            ng-click="$ctrl.getTypesUser('no')"
-            ng-class="{component__border__green__style:$ctrl.formSG.$valid}">
+            ng-click="$ctrl.getGifsUser('no')"
+            ng-class="{component__border__green__style__gifs:$ctrl.formSG.$valid}">
             Search Giphy
         </button>
     </div>
@@ -45,8 +45,8 @@
         gifs='$ctrl.giphyList' 
         arrow-left='$ctrl.ArrowLeft'
         arrow-right='$ctrl.ArrowRight'
-        get-gifs='$ctrl.getTypesUser(offset,direction)'
-        check-gif='$ctrl.checkTypeUser(id)'
-        add-gif-fav="$ctrl.addTypeFav(data)">
+        get-gifs='$ctrl.getGifsUser(offset,direction)'
+        check-gif='$ctrl.checkGifsUser(id)'
+        add-gif-fav="$ctrl.addGifsFav(data)">
     </slider-gifs>
 </div>

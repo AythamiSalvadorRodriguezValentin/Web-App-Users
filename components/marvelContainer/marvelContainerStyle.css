@@ -1,0 +1,70 @@
+.component__view__favourite__marvel--general{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    border-bottom: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.component__view__favourite__marvel--container{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    overflow: scroll;
+    padding: 10px;
+    border-radius: 5px 5px 5px 5px;
+    background-color: white;
+}
+.component__view__favourite__marvel{
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    display: flex;
+    flex-flow: row wrap;
+}
+.component__view__favourite__photo__marvel{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+.component__user__search__marvel{
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    overflow: scroll;
+}
+.component__user__search__marvel button{
+    width: 170px;
+    height: 35px;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.component__user__search__marvel form input{
+    width: 200px;
+    height: 35px;
+    border-width: 0px;
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
+}
+.component__user__search__marvel form input::-webkit-input-placeholder{
+    color: black;
+    padding-left: 5px;
+}
+.component__user__search__select__marvel{
+    height: 35px;
+    width: 200px;
+    margin: 20px;
+    background-color: white;
+}
+.component__border__green__style__marvel{
+    border: 1px solid rgb(70, 209, 15);
+}
