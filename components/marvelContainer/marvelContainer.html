@@ -13,21 +13,23 @@
         </div>
     </div>
     <div class="component__user__search__marvel">
-            <form name="$ctrl.formSM">
-                <input 
-                    type="text" 
-                    placeholder="Search Marvel" 
-                    ng-model="$ctrl.search_marvel.text" 
-                    ng-required="true" 
-                    ng-minlength="1">
-                <select 
-                    class="component__user__search__select__marvel" 
-                    ng-model="$ctrl.typeMarvel" 
-                    ng-required="true">
-                    <option disabled selected value> Please Select Marvel Type </option>
-                    <option ng-repeat="marvel in $ctrl.marvelListSelect track by $index">{{marvel}}</option>
-                </select>
-            </form>
+            <div class="component__user__search__marvel__form">
+                <form name="$ctrl.formSM">
+                    <input 
+                        type="text" 
+                        placeholder="Search Marvel" 
+                        ng-model="$ctrl.search_marvel.text" 
+                        ng-required="true" 
+                        ng-minlength="1">
+                    <select 
+                        class="component__user__search__select__marvel" 
+                        ng-model="$ctrl.typeMarvel" 
+                        ng-required="true">
+                        <option disabled selected value> Please Select Marvel Type </option>
+                        <option ng-repeat="marvel in $ctrl.marvelListSelect track by $index">{{marvel}}</option>
+                    </select>
+                </form>
+            </div>
             <button 
                 ng-disabled="$ctrl.formSM.$invalid" 
                 ng-click="$ctrl.getMarvel('no')" 

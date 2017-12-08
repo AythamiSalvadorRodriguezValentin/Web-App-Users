@@ -1,9 +1,11 @@
+<link rel="stylesheet" href="/css/home.css">
+<!-- //////////////////////////////////////////////////////////// -->
 <div class="container-fluid" ng-cloak>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
             <!-- Container User Card -->
             <user-card-personal
-                users-list="HomeCtrl.usersList" show-user="HomeCtrl.showUser(id)" 
+                class="user__card__personal--directive" users-list="HomeCtrl.usersList" show-user="HomeCtrl.showUser(id)" 
                 edit-user="HomeCtrl.editUser(id)" remove-user="HomeCtrl.removeUser(user)">
             </user-card-personal>
         </div>
@@ -11,31 +13,29 @@
             <div class="container--Right">
                 <!-- Container Nav Bar Search -->
                 <nave-bar-search
-                    class="nav__bar--directive" logo-img="none" logo-alt="" show-logo="false"
-                    nav-list="HomeCtrl.navList" search="HomeCtrl.search" search-placeholder="Search User" 
-                    show-search="false" show-view="HomeCtrl.showView">
+                    class="nav__bar__search--directive" logo-img="none" logo-alt="" show-logo="false" nav-list="HomeCtrl.navList" 
+                    search="HomeCtrl.search" search-placeholder="Search User" show-search="false" show-view="HomeCtrl.showView">
                 </nave-bar-search>
                 <!-- Container User Perfil -->
                 <personal-form 
-                    ng-show="HomeCtrl.showView == 'User'"  user="HomeCtrl.user" form="HomeCtrl.formUser">
+                    class="personal__form--directive" ng-show="HomeCtrl.showView == 'User'"  user="HomeCtrl.user" form="HomeCtrl.formUser">
                 </personal-form>
                 <!-- Container Gifs -->
                 <gifs-container
-                    ng-show="HomeCtrl.showView == 'Gifs'" user='HomeCtrl.user' style="width:100%; height:800px">
+                    class="gifs__conatiner--directive" ng-show="HomeCtrl.showView == 'Gifs'" user='HomeCtrl.user'>
                 </gifs-container>
                 <!-- Container Marvel -->
                 <marvel-container 
-                    ng-show="HomeCtrl.showView == 'Marvel'" user='HomeCtrl.user' style="width:100%; height:800px">
+                    class="marvel__container--directive" ng-show="HomeCtrl.showView == 'Marvel'" user='HomeCtrl.user'>
                 </marvel-container>
                 <!-- Container button Create and Modify -->
                 <div class="button__User">
                     <button 
-                        ng-if="!HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" 
-                        ng-class="{borderGreenStyle:HomeCtrl.checkValid()}" 
+                        ng-if="!HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" ng-class="{borderGreenStyle:HomeCtrl.checkValid()}" 
                         ng-click="HomeCtrl.addNewUser()"> Create
                     </button>
-                    <button ng-if="HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" 
-                        ng-class="{borderGreenStyle:HomeCtrl.checkValid()}" 
+                    <button 
+                        ng-if="HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" ng-class="{borderGreenStyle:HomeCtrl.checkValid()}"
                         ng-click="HomeCtrl.modifyUser()"> Modify
                     </button>
                 </div>

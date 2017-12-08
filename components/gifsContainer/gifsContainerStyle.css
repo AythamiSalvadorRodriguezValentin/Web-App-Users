@@ -6,15 +6,15 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    border-bottom: 2px solid white;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: transparent;
 }
 .component__view__favourite__gifs--container{
     width: 100%;
-    height: 25%;
+    height: 30%;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    align-items: center;
     overflow: scroll;
     padding: 10px;
     border-radius: 5px 5px 5px 5px;
@@ -34,24 +34,24 @@
 }
 .component__user__search__gifs{
     width: 100%;
-    height: 10%;
-    margin: 0 auto;
+    min-height: 10%;
+    max-height: 15%;
     padding: 10px;
     display: inline-flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
     overflow: scroll;
 }
 .component__user__search__gifs button{
     width: 170px;
-    height: 35px;
+    height: 45px;
     color: white;
     border-radius: 5px 5px 5px 5px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 .component__user__search__gifs form input{
-    width: 200px;
+    max-width: 200px;
     height: 35px;
     border-width: 0px;
     background-color: white;
@@ -62,28 +62,38 @@
     padding-left: 5px;
 }
 .component__user__search__type__gifs{
-    height: 35px;
+    height: 30px;
     width: 200px;
     margin: 20px;
     display: flex;
-    flex-flow: row;
+    flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
 }
 .component__user__search__type__recent__gifs{
     width: 200px;
+    height: 100%;
     color: black;
     padding: 10px;
     text-align: center;
     text-decoration: none;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
     border-right: 1px solid black;
 }
 .component__user__search__type__trending__gifs{
     width: 200px;
+    height: 100%;
     color: black;
     padding: 10px;
     text-align: center;
     text-decoration: none;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
     border-left: 1px solid black;
 }
 .component__user__search__type__recent__gifs:hover{
@@ -103,5 +113,5 @@
 }
 .component--slider-gifs{
     width:100%; 
-    height:65%;
+    height:60%;
 }
