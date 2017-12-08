@@ -9,7 +9,11 @@
             alt="{{$ctrl.logoAlt}}">
     </div>
     <ul class="component__nav__bar--middle">
-        <li ng-repeat="nav in $ctrl.navList track by $index" ng-click="$ctrl.showView = nav">{{::nav}}</li>
+        <li 
+            ng-repeat="nav in $ctrl.navList track by $index" 
+            ng-click="$ctrl.showView = nav">
+            {{::nav}}
+        </li>
     </ul>
     <div class="component__nav__bar__search--end">
         <input 
