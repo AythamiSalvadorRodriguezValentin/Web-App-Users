@@ -7,7 +7,8 @@
     align-items: center;
 }
 .component__nav__bar__img--start{
-    width: 15%;
+    width: 20%;
+    /* width: 15%; */
     height: 100%;
     background-color: transparent;
     display: flex;
@@ -16,7 +17,8 @@
     margin: 0;
 }
 .component__nav__bar--middle{
-    width: 55%;
+    width: 60%;
+    /* width: 55%; */
     height: 100%;
     display: inline-flex;
     flex-flow: row nowrap;
@@ -26,7 +28,8 @@
     margin: 0;
 }
 .component__nav__bar__search--end{
-    width: 30%;
+    width: 20%;
+    /* width: 30%; */
     height: 100%;
     display: flex;
     flex-flow: row;

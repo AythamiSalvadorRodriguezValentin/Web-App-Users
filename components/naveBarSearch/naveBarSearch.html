@@ -3,7 +3,8 @@
 
 <div class="component__nav__bar--nav">
     <div class="component__nav__bar__img--start">
-        <img 
+        <img
+            ng-show="$ctrl.showLogo"
             ng-src="{{$ctrl.logoImg}}" 
             alt="{{$ctrl.logoAlt}}">
     </div>
@@ -12,8 +13,9 @@
     </ul>
     <div class="component__nav__bar__search--end">
         <input 
-            class="component__nav__bar__search" 
-            type="text" 
+            class="component__nav__bar__search"
+            ng-show="$ctrl.showSearch"
+            type="text"
             placeholder="{{$ctrl.searchPlaceholder}}" 
             ng-model="$ctrl.search">
     </div>

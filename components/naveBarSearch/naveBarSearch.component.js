@@ -13,8 +13,10 @@
             bindings: {
                 logoImg: '@',
                 logoAlt: '@',
+                showLogo: '<',
                 navList: '<',
                 search: '=',
+                showSearch: '<',
                 searchPlaceholder: '@',
                 showView: '=',
             },

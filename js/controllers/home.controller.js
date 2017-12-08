@@ -24,7 +24,7 @@
         vm.removeUser = removeUser;
         vm.checkValid = checkValid;
         ////////////////////// NAV PERFIL USER /////////////////////
-        vm.go = go;
+        vm.showUser = showUser;
         ///////////////////////// INIT /////////////////////////////
         activate();
         ///////////////////////// FUCTION INIT /////////////////////
@@ -75,7 +75,7 @@
             else return false;
         }
         ////////////////////// NAV PERFIL USER /////////////////////
-        function go(id){
+        function showUser(id){
             let url = "/user/" + id;
             $location.path(url);
         };

@@ -3,7 +3,7 @@
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
             <!-- Container User Card -->
             <user-card-personal
-                users-list="HomeCtrl.usersList" show-user="HomeCtrl.go(id)" 
+                users-list="HomeCtrl.usersList" show-user="HomeCtrl.showUser(id)" 
                 edit-user="HomeCtrl.editUser(id)" remove-user="HomeCtrl.removeUser(user)">
             </user-card-personal>
         </div>
@@ -11,8 +11,9 @@
             <div class="container--Right">
                 <!-- Container Nav Bar Search -->
                 <nave-bar-search
-                    class="nav__bar--directive" logo-img="none" logo-alt="" nav-list="HomeCtrl.navList" 
-                    search="HomeCtrl.search" search-placeholder="Search User" show-view="HomeCtrl.showView">
+                    class="nav__bar--directive" logo-img="none" logo-alt="" show-logo="false"
+                    nav-list="HomeCtrl.navList" search="HomeCtrl.search" search-placeholder="Search User" 
+                    show-search="false" show-view="HomeCtrl.showView">
                 </nave-bar-search>
                 <!-- Container User Perfil -->
                 <personal-form 
@@ -20,7 +21,7 @@
                 </personal-form>
                 <!-- Container Gifs -->
                 <gifs-container
-                    ng-show="HomeCtrl.showView == 'Giphy'" user='HomeCtrl.user' style="width:100%; height:800px">
+                    ng-show="HomeCtrl.showView == 'Gifs'" user='HomeCtrl.user' style="width:100%; height:800px">
                 </gifs-container>
                 <!-- Container Marvel -->
                 <marvel-container 
