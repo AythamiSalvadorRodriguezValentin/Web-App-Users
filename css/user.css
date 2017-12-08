@@ -8,7 +8,8 @@
     align-self: flex-start;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid white;
     border-bottom-right-radius: 8px;
     font-size: 20px;
     color: white;
@@ -26,7 +27,7 @@
     justify-content: center;
     align-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(187, 135, 24, 0.75);
 }
 .agend__user__data__personal{
     width: 100%;
@@ -84,7 +85,7 @@
     width: 100%;
     display: flex;
     flex-flow: row wrap;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(187, 135, 24, 0.75);
 }
 .agend__user__favourite--title{
     width: 100%;
@@ -95,7 +96,7 @@
     align-items: center;
     border-top: 2px solid white;
     border-bottom: 2px solid white;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 .agend__user__favourite--remove{
     width: 30px;
