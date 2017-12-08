@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/components/userCardPersonal/userCardPersonalStyle.css">
+
+<div class="component__user__container">
+    <div class="component__user__prev" ng-repeat="user in $ctrl.usersList track by user.id">
+        <div class="component__user__photo__1">
+            <div class="component__user__photo__2">
+                <img class="component__user__photo__img" ng-click="$ctrl.showUser({id:user.id})" ng-src="{{user.photo}}" onerror="this.src='/img/no_image.png'">
+            </div>
+        </div>
+        <div class="component__user__prev__name">{{user.name}}</div>
+        <div class="component__user__prev__data">
+            <div class="component__user__prev__data__"><img src="../img/tlf.png"> {{user.phone}} </div>
+            <div class="component__user__prev__data__"><img src="../img/email.png"> {{user.email}} </div>
+        </div>
+        <div class="component__user__prev__button">
+            <button ng-click="$ctrl.showUser({id:user.id})"><img src="/img/show.png"></button>
+            <button ng-click="$ctrl.editUser({id:user.id})"><img src="/img/edit.png"></button>
+            <button ng-click="$ctrl.removeUser({user:user})"><img src="/img/delete.png"></button>
+        </div>
+    </div>
+</div>

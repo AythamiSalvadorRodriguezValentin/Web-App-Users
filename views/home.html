@@ -6,25 +6,10 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
             <!-- Container User Card -->
-            <div class="user__container">
-                <div class="user__prev" ng-repeat="user in HomeCtrl.usersList track by user.id">
-                    <div class="user__photo__1">
-                        <div class="user__photo__2">
-                            <img class="user__photo__img" ng-click="HomeCtrl.go(user.id)" ng-src="{{user.photo}}" onerror="this.src='/img/no_image.png'">
-                        </div>
-                    </div>
-                    <div class="user__prev__name">{{user.name}}</div>
-                    <div class="user__prev__data">
-                        <div class="user__prev__data__"><img src="../img/tlf.png"> {{user.phone}} </div>
-                        <div class="user__prev__data__"><img src="../img/email.png"> {{user.email}} </div>
-                    </div>
-                    <div class="user__prev__button">
-                        <button ng-click="HomeCtrl.go(user.id)"><img src="/img/show.png"></button>
-                        <button ng-click="HomeCtrl.editUser(user.id)"><img src="/img/edit.png"></button>
-                        <button ng-click="HomeCtrl.removeUser(user)"><img src="/img/delete.png"></button>
-                    </div>
-                </div>
-            </div>
+            <user-card-personal
+                users-list="HomeCtrl.usersList" show-user="HomeCtrl.go(id)" 
+                edit-user="HomeCtrl.editUser(id)" remove-user="HomeCtrl.removeUser(user)">
+            </user-card-personal>
         </div>
         <div class="col-sx-12 col-sm-12 col-md-6 col-lg-8">
             <div class="container__R">
@@ -37,36 +22,26 @@
                 </div>
                 <!-- Container User Perfil -->
                 <personal-form 
-                    ng-show="HomeCtrl.showView == 'User'" 
-                    user="HomeCtrl.user" 
-                    form="HomeCtrl.formUser">
+                    ng-show="HomeCtrl.showView == 'User'"  user="HomeCtrl.user" form="HomeCtrl.formUser">
                 </personal-form>
                 <!-- Container Gifs -->
                 <gifs-container
-                    style="width:100%; height:800px"
-                    ng-show="HomeCtrl.showView == 'Giphy'"
-                    user='HomeCtrl.user'>
+                ng-show="HomeCtrl.showView == 'Giphy'" user='HomeCtrl.user' style="width:100%; height:800px">
                 </gifs-container>
                 <!-- Container Marvel -->
-                <marvel-container
-                    style="width:100%; height:800px"
-                    ng-show="HomeCtrl.showView == 'Marvel'"
-                    user='HomeCtrl.user'>
+                <marvel-container 
+                    ng-show="HomeCtrl.showView == 'Marvel'" user='HomeCtrl.user' style="width:100%; height:800px">
                 </marvel-container>
                 <!-- Container button Create and Modify -->
                 <div class="button__User">
                     <button 
-                        ng-if="!HomeCtrl.edit" 
-                        ng-disabled="!HomeCtrl.checkValid()" 
+                        ng-if="!HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" 
                         ng-class="{borderGreenStyle:HomeCtrl.checkValid()}" 
-                        ng-click="HomeCtrl.addNewUser()">
-                        Create
+                        ng-click="HomeCtrl.addNewUser()"> Create
                     </button>
-                    <button ng-if="HomeCtrl.edit" 
-                        ng-disabled="!HomeCtrl.checkValid()" 
+                    <button ng-if="HomeCtrl.edit" ng-disabled="!HomeCtrl.checkValid()" 
                         ng-class="{borderGreenStyle:HomeCtrl.checkValid()}" 
-                        ng-click="HomeCtrl.modifyUser()">
-                        Modify
+                        ng-click="HomeCtrl.modifyUser()"> Modify
                     </button>
                 </div>
             </div>
