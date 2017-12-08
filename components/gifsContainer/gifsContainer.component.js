@@ -1,11 +1,13 @@
 (function() {
     'use strict';
-
+    ////////////////////////////////////////////////////////////
     // Usage:
-    // 
+    // Este componente permite visualizar gifs y añadir gifs a 
+    // un usuario en favoritos. Se usa en Agend_User
     // Creates:
-    // 
-
+    // Este componente permite descargar gifs de la API Giphy 
+    // y añadir a un usuario los gifs que más le guste.
+    ////////////////////////////////////////////////////////////
     angular
         .module('Agend_User')
         .component('gifsContainer', {
@@ -16,7 +18,7 @@
                 user: '='
             }
         });
-
+    ////////////////////////////////////////////////////////////
     GifsContainerController.$inject = ['GiphyServerProvider','UserLocalProvider'];
     function GifsContainerController(GSP,ULP) {
         var $ctrl = this;
@@ -89,6 +91,5 @@
             }
             return false;
         }
-        ////////////////////////////////////////////////////////////
     }
 })();

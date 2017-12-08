@@ -37,10 +37,7 @@ input.ng-touched.ng-pristine.ng-valid-required.ng-invalid.ng-not-empty{
 input.ng-untouched.ng-pristine.ng-valid-required.ng-invalid.ng-not-empty{
     border: 2px solid red;
 }
-.blackStyle{
-    font-weight: bold;
-    color: black;
-}
+/*_Accept_Valid_*/
 .borderGreenStyle{
     border: 1px solid rgb(70, 209, 15);
 }

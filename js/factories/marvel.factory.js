@@ -1,10 +1,10 @@
 (function() {
     'use strict';
-
+    ////////////////////////////////////////////////////////////
     angular
         .module('Agend_User')
         .factory('MarvelServerProvider', MarvelServerProvider);
-
+    ////////////////////////////////////////////////////////////
     MarvelServerProvider.$inject = ['$http'];
     function MarvelServerProvider($http) {
         let MSP = this;
@@ -111,6 +111,10 @@
         function errorFuction(response){
             return response;
         };
+        /**
+         * Devuelve un array con los tipos de búsqueda que se pueden realizar en Marvel:
+         * 'comics','characters','events','series'.
+         */
         function getTypes(){
             return ['comics','characters','events','series'];
         }

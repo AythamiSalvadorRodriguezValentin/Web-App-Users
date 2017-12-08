@@ -1,11 +1,13 @@
 (function() {
     'use strict';
-
+    ////////////////////////////////////////////////////////////
     // Usage:
-    // 
+    // Este componente permite visualizar marvel y añadir marvel 
+    // a un usuario en favoritos. Se usa en Agend_User.
     // Creates:
-    // 
-
+    // Este componente permite descargar marvel de la API Marvel 
+    // y añadir a un usuario los gifs que más le guste.
+    ////////////////////////////////////////////////////////////
     angular
         .module('Agend_User')
         .component('marvelContainer', {
@@ -16,7 +18,7 @@
                 user: '='
             }
         });
-
+    ////////////////////////////////////////////////////////////
     MarvelContainerController.$inject = ['MarvelServerProvider','UserLocalProvider'];
     function MarvelContainerController(MSP,ULP) {
         var $ctrl = this;
@@ -89,6 +91,5 @@
             }
             return false;
         }
-        ////////////////////////////////////////////////////////////
     }
 })();

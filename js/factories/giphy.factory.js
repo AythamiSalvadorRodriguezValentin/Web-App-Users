@@ -1,10 +1,10 @@
 (function() {
     'use strict';
-
+    ////////////////////////////////////////////////////////////
     angular
         .module('Agend_User')
         .factory('GiphyServerProvider', GiphyServerProvider);
-
+    ////////////////////////////////////////////////////////////
     GiphyServerProvider.$inject = ['$http'];
     function GiphyServerProvider($http) {
         let GSP = this;
@@ -18,6 +18,10 @@
         };
         return service;
         /////////////////////////// FUCTION GYPHY ///////////////////////////
+        /**
+         * 
+         * @param {*} data_id 'String': identificador del gif que deseas buscar.
+         */
         function getGifsById(data_id) {
             let url = 'https://api.giphy.com/v1/gifs/';
             let data = data_id;

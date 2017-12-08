@@ -1,9 +1,11 @@
 (function() {
     'use strict';
+    ////////////////////////////////////////////////////////////
     // Usage:
     // 
     // Creates:
     // 
+    ////////////////////////////////////////////////////////////
     angular
         .module('Agend_User')
         .component('userCardPersonal', {
@@ -17,10 +19,11 @@
                 removeUser: '&',
             },
         });
+    ////////////////////////////////////////////////////////////
     UserCardPersonalController.$inject = [];
     function UserCardPersonalController() {
         var $ctrl = this;
-        ////////////////
+        ////////////////////////////////////////////////////////////
         $ctrl.$onInit = function() { };
         $ctrl.$onChanges = function(changesObj) { };
         $ctrl.$onDestroy = function() { };

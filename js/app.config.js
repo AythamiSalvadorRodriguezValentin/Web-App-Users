@@ -1,5 +1,6 @@
 angular.module('Agend_User',['ngRoute']).config(config);
 config.$inject = ['$routeProvider'];
+////////////////////////////////////////////////////////////
 function config($routeProvider){
     $routeProvider
         .when('/',{
@@ -17,7 +18,9 @@ function config($routeProvider){
         })
         .otherwise({redirectTo : '/'});
 };
+////////////////////////////////////////////////////////////
 UserLocalFactory.$inject = ['$route','UserLocalProvider'];
+////////////////////////////////////////////////////////////
 function UserLocalFactory($route,UserLocalProvider){
     return UserLocalProvider.getUser($route.current.params.id);
 }

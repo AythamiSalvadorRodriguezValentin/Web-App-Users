@@ -4,7 +4,7 @@
     angular
         .module('Agend_User')
         .controller('HomeController', HomeController);
-
+    ////////////////////////////////////////////////////////////
     HomeController.$inject = ["$location","UserLocalProvider"];
     function HomeController($location,ULP) {
         let vm = this;
