@@ -1,7 +1,3 @@
-
-
-
-
 <div class="container-fluid" ng-cloak>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
@@ -12,21 +8,19 @@
             </user-card-personal>
         </div>
         <div class="col-sx-12 col-sm-12 col-md-6 col-lg-8">
-            <div class="container__R">
-                <div class="nav__bar">
-                    <ul>
-                        <li ng-click="HomeCtrl.showView = 'User'">Users</li>
-                        <li ng-click="HomeCtrl.showView = 'Giphy'">Giphy</li>
-                        <li ng-click="HomeCtrl.showView = 'Marvel'">Marvel</li>
-                    </ul>
-                </div>
+            <div class="container--Right">
+                <!-- Container Nav Bar Search -->
+                <nave-bar-search
+                    class="nav__bar--directive" logo-img="none" logo-alt="" nav-list="HomeCtrl.navList" 
+                    search="HomeCtrl.search" search-placeholder="Search User" show-view="HomeCtrl.showView">
+                </nave-bar-search>
                 <!-- Container User Perfil -->
                 <personal-form 
                     ng-show="HomeCtrl.showView == 'User'"  user="HomeCtrl.user" form="HomeCtrl.formUser">
                 </personal-form>
                 <!-- Container Gifs -->
                 <gifs-container
-                ng-show="HomeCtrl.showView == 'Giphy'" user='HomeCtrl.user' style="width:100%; height:800px">
+                    ng-show="HomeCtrl.showView == 'Giphy'" user='HomeCtrl.user' style="width:100%; height:800px">
                 </gifs-container>
                 <!-- Container Marvel -->
                 <marvel-container 
@@ -48,4 +42,3 @@
         </div>
     </div>
 </div>
-    

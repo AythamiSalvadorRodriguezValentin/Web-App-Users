@@ -14,6 +14,8 @@
         vm.edit = false;
         vm.showView = 'User';
         vm.formUser = {};
+        vm.navList = [];
+        vm.search = '';
         //////////////////////// FUCTION USER //////////////////////
         vm.resetVar = resetVar;
         vm.addNewUser = addNewUser;
@@ -29,6 +31,7 @@
         function activate() {
             vm.resetVar();
             vm.usersList = ULP.getUsersAll();
+            vm.navList = ['User','Gifs','Marvel'];
         };
         //////////////////////// FUCTION USER //////////////////////
         function resetVar(){

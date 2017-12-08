@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/components/naveBarSearch/naveBarSearchStyle.css">
+<link rel="stylesheet" href="/libs/bootstrap.css">
+
+<div class="component__nav__bar--nav">
+    <div class="component__nav__bar__img--start">
+        <img 
+            ng-src="{{$ctrl.logoImg}}" 
+            alt="{{$ctrl.logoAlt}}">
+    </div>
+    <ul class="component__nav__bar--middle">
+        <li ng-repeat="nav in $ctrl.navList track by $index" ng-click="$ctrl.showView = nav">{{::nav}}</li>
+    </ul>
+    <div class="component__nav__bar__search--end">
+        <input 
+            class="component__nav__bar__search" 
+            type="text" 
+            placeholder="{{$ctrl.searchPlaceholder}}" 
+            ng-model="$ctrl.search">
+    </div>
+</div>
