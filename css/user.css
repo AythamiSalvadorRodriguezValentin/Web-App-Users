@@ -28,6 +28,8 @@
     align-content: center;
     align-items: center;
     background-color: rgba(187, 135, 24, 0.75);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 .agend__user__data__personal{
     width: 100%;
@@ -86,6 +88,8 @@
     display: flex;
     flex-flow: row wrap;
     background-color: rgba(187, 135, 24, 0.75);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 .agend__user__favourite--title{
     width: 100%;
