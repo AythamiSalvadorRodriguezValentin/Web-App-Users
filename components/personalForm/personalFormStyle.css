@@ -12,6 +12,10 @@
     border: 1.5px dotted white;
     padding: 20px;
     border-radius: 3px 3px 3px 3px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 .component__view__container form input{
     width: 300px;
