@@ -5,8 +5,8 @@
         .module('Agend_User')
         .controller('HomeController', HomeController);
     ////////////////////////////////////////////////////////////
-    HomeController.$inject = ["$location","UserLocalProvider"];
-    function HomeController($location,ULP) {
+    HomeController.$inject = ["$location","UserLocalProvider","FirebaseServiceProvider"];
+    function HomeController($location,ULP,FSP) {
         let vm = this;
         ////////////////////////// VAR USER ////////////////////////
         vm.usersList = [];
@@ -35,7 +35,7 @@
         };
         //////////////////////// FUCTION USER //////////////////////
         function resetVar(){
-            vm.user = {name:'', email:'', phone:'', photo:'', giphy:[], marvel:[]};
+            vm.user = {name:'', password:'', email:'', phone:'', photo:'', giphy:[], marvel:[]};
         };
         function addNewUser(){
             vm.user = ULP.addUser(vm.user);
@@ -79,6 +79,8 @@
             let url = "/user/" + id;
             $location.path(url);
         };
+        //////////////////////// FUCTION FIREBASE //////////////////
+
         ////////////////////////////////////////////////////////////
     }
 })();

@@ -16,12 +16,31 @@
         <script src="/libs/angular-route.js"></script>
         <script src="/libs/jquery.js"></script>
         <script src="/libs/bootstrap.js"></script>
+        <!-- Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyAOAZUJnbyhyiF-UFiyUoBYSKmMr2skGmE",
+                authDomain: "my-app-giphy-and-marvel.firebaseapp.com",
+                databaseURL: "https://my-app-giphy-and-marvel.firebaseio.com",
+                projectId: "my-app-giphy-and-marvel",
+                storageBucket: "my-app-giphy-and-marvel.appspot.com",
+                messagingSenderId: "302225575897"
+            };
+            firebase.initializeApp(config);
+        </script>
         <!-- App Config -->
         <script src="/js/app.config.js"></script>
         <!-- Factories -->
         <script src="/js/factories/user.factory.js"></script>
         <script src="/js/factories/giphy.factory.js"></script>
         <script src="/js/factories/marvel.factory.js"></script>
+        <script src="/js/factories/firebase.factory.js"></script>
         <!-- Componentes -->
         <script src="/components/userCardPersonal/userCardPersonal.component.js"></script>
         <script src="/components/naveBarSearch/naveBarSearch.component.js"></script>
