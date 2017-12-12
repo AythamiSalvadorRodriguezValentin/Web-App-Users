@@ -9,6 +9,10 @@
     function FirebaseServiceProvider() {
         let vm = this;
         var service = {
+            readAllUser:readAllUser,
+            readUserData:readUserData,
+            createUserData:createUserData,
+            updateUserData:updateUserData,
             createUserWithEmailAndPasswordUser:createUserWithEmailAndPasswordUser,
             signInWithEmailAndPasswordUser:signInWithEmailAndPasswordUser,
             onAuthStateChangedUser:onAuthStateChangedUser,
@@ -22,6 +26,46 @@
             signOutUser:signOutUser
         };
         return service;
+        function readAllUser(){
+            let promise = new Promise(function(resolve,reject){
+                firebase.database().ref('users').on('value', function(u) {
+                    let users = Object.keys(u.val()).map(function(val){
+                        return u.val()[val];
+                    });
+                    console.log(users);
+                    /* resolve(u.val()); */
+                });
+            });
+            return promise;
+        }
+        ///////////////////////////// Leer datos database ///////////////////////////////
+        function readUserData(id){
+            let promise = new Promise(function(resolve,reject){
+                firebase.database().ref('users/' + id).on('value', function(u) {
+                    resolve(u.val());
+                });
+            });
+            return promise;
+        }
+        ///////////////////////////// Escribir datos database ///////////////////////////////
+        function createUserData(user) {
+            user.id = randId();
+            firebase.database().ref('users/' + user.id).set({
+                name: user.name,
+                email: user.email,
+                phone : user.phone,
+                photo: user.photo
+            });
+        };
+        ///////////////////////////// Actualiza datos database ///////////////////////////////
+        function updateUserData(user) {
+            firebase.database().ref('users/' + user.id).update({
+                name: user.name,
+                email: user.email,
+                phone : user.phone,
+                photo: user.photo
+            });
+        };
         ///////////////////////////// Registra usuarios nuevos ///////////////////////////////
         function createUserWithEmailAndPasswordUser(user){ 
             firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
@@ -91,8 +135,7 @@
         };
         /////////////////////////////// Configura la dirección de correo electrónico de un usuario /////////////////////////////
         function updateEmailUser(){
-            var user = firebase.auth().currentUser;
-            
+            let user = firebase.auth().currentUser;
             user.updateEmail("user@example.com").then(function() {
               // Update successful.
             }).catch(function(error) {
@@ -103,7 +146,6 @@
         function getASecureRandomPasswordUser(){
             let user = firebase.auth().currentUser;
             let newPassword = getASecureRandomPassword();
-            
             user.updatePassword(newPassword).then(function() {
               // Update successful.
             }).catch(function(error) {
@@ -131,11 +173,9 @@
         };
         /////////////////////////// Vuelve a autenticar un usuario /////////////////////////////////
         function reauthenticateWithCredentialUser(){
-            var user = firebase.auth().currentUser;
-            var credential;
-            
+            let user = firebase.auth().currentUser;
+            let credential;
             // Prompt the user to re-provide their sign-in credentials
-            
             user.reauthenticateWithCredential(credential).then(function() {
               // User re-authenticated.
             }).catch(function(error) {
@@ -149,6 +189,10 @@
             }).catch(function(error) {
                 // An error happened.
             });
+        }
+        /////////////////////////////////////////// OTHER FUCTION /////////////////////////////////////////
+        function randId(){
+            return Math.random().toString(36).substr(2, 10);
         }
         ////////////////////////////////////////////////////////////
     }

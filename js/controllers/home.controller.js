@@ -30,7 +30,8 @@
         ///////////////////////// FUCTION INIT /////////////////////
         function activate() {
             vm.resetVar();
-            vm.usersList = ULP.getUsersAll();
+            /* vm.usersList = ULP.getUsersAll(); */
+            FSP.readAllUser().then(users => {vm.usersList = users; console.log(vm.usersList)}).catch(e => console.log(e));
             vm.navList = ['User','Gifs','Marvel'];
         };
         //////////////////////// FUCTION USER //////////////////////
@@ -38,7 +39,8 @@
             vm.user = {name:'', password:'', email:'', phone:'', photo:'', giphy:[], marvel:[]};
         };
         function addNewUser(){
-            vm.user = ULP.addUser(vm.user);
+            FSP.createUserData(vm.user);
+            /* vm.user = ULP.addUser(vm.user); */
             vm.usersList.push(vm.user);
             vm.formUser.$setPristine();
             vm.resetVar();
@@ -46,12 +48,15 @@
         function editUser(id){
             vm.edit = false;
             vm.resetVar();
-            vm.user = ULP.getUser(id);
+            FSP.readUserData(id).then(user => vm.user).catch(e => console.log(e));
+            /* vm.user = ULP.getUser(id); */
             vm.edit = true;
+            console.log(vm.user);
         };
         function modifyUser(){
             vm.edit = false;
-            ULP.updateUser(vm.user);
+            FSP.updateUserData(vm.user);
+            /* ULP.updateUser(vm.user); */
             for (let i = 0; i < vm.usersList.length; i++) {
                 const u = vm.usersList[i];
                 if (u.id == vm.user.id) vm.usersList[i] = vm.user;
